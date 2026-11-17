@@ -59,6 +59,10 @@ Dos socios en Santiago, un ingeniero en automatización y un informático, está
 
 ## 5. Planes y precios (cotización del 12 de noviembre de 2026)
 
+> **Actualizado el 17 de noviembre de 2026.** Precios de venta subidos para llegar a ~23–31% de margen bruto (ver `reports/Insumos domótica precios y márgenes.md`). Ya están en la página:
+> Cámaras $239.990 · Alarma $199.990 · Luces $219.990 · Portón $89.990 · Energía y frío $359.990 (trifásico +$149.990) · Casa Segura $399.990 · Casa Completa $669.990 · Negocio Completo $729.990 · Soporte Hogar $19.990/mes · Soporte Negocio $39.990/mes · Central local +$299.990 y $29.990/mes.
+> Las tablas de abajo quedan como la cotización original.
+
 Precios de tienda con IVA. Supuestos: 25% de margen sobre equipos, $25.000 por hora de instalación y $15.000 de traslado por visita. Confirmar precio y stock antes de comprar.
 
 ### Planes sueltos (línea económica)
