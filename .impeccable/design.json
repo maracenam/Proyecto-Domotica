@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-16T02:07:40.737130+00:00",
+  "title": "Design System: Nodo Domótica",
+  "extensions": {
+    "colorMeta": {
+      "cal": {
+        "role": "neutral",
+        "displayName": "Cal",
+        "canonical": "#F3EFE6",
+        "tonalRamp": [
+          "#3D3C3A",
+          "#6D6C67",
+          "#9E9B96",
+          "#CFCBC4",
+          "#F5F2EB",
+          "#F8F6F1",
+          "#FBFAF8",
+          "#FEFDFC"
+        ]
+      },
+      "cal-2": {
+        "role": "neutral",
+        "displayName": "Cal 2",
+        "canonical": "#E8E1D2",
+        "tonalRamp": [
+          "#3A3834",
+          "#68655E",
+          "#979288",
+          "#C5BFB2",
+          "#EDE7DB",
+          "#F2EEE6",
+          "#F8F6F2",
+          "#FDFCFA"
+        ]
+      },
+      "papel": {
+        "role": "neutral",
+        "displayName": "Papel",
+        "canonical": "#FFFDF8",
+        "tonalRamp": [
+          "#403F3E",
+          "#737270",
+          "#A6A4A1",
+          "#D9D7D3",
+          "#FFFDF9",
+          "#FFFEFB",
+          "#FFFEFD",
+          "#FFFFFE"
+        ]
+      },
+      "tinta": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "#1B1F27",
+        "tonalRamp": [
+          "#07080A",
+          "#0C0E12",
+          "#121419",
+          "#171A21",
+          "#494C52",
+          "#828488",
+          "#BBBCBE",
+          "#E8E9E9"
+        ]
+      },
+      "tinta-2": {
+        "role": "neutral",
+        "displayName": "Tinta 2",
+        "canonical": "#4B5261",
+        "tonalRamp": [
+          "#131418",
+          "#22252C",
+          "#31353F",
+          "#404652",
+          "#6F7581",
+          "#9CA0A8",
+          "#C9CBD0",
+          "#EDEEEF"
+        ]
+      },
+      "regla": {
+        "role": "neutral",
+        "displayName": "Regla",
+        "canonical": "#D5CDBC",
+        "tonalRamp": [
+          "#35332F",
+          "#605C55",
+          "#8A857A",
+          "#B5AEA0",
+          "#DDD7C9",
+          "#E8E4DA",
+          "#F2F0EB",
+          "#FBFAF8"
+        ]
+      },
+      "madera": {
+        "role": "neutral",
+        "displayName": "Madera",
+        "canonical": "#C9A27A",
+        "tonalRamp": [
+          "#32281E",
+          "#5A4937",
+          "#83694F",
+          "#AB8A68",
+          "#D4B595",
+          "#E1CCB6",
+          "#EFE3D7",
+          "#FAF6F2"
+        ]
+      },
+      "noche": {
+        "role": "secondary",
+        "displayName": "Noche",
+        "canonical": "#1C2333",
+        "tonalRamp": [
+          "#07090D",
+          "#0D1017",
+          "#121721",
+          "#181E2B",
+          "#494F5C",
+          "#82868F",
+          "#BBBDC2",
+          "#E8E9EB"
+        ]
+      },
+      "noche-2": {
+        "role": "secondary",
+        "displayName": "Noche 2",
+        "canonical": "#283149",
+        "tonalRamp": [
+          "#0A0C12",
+          "#121621",
+          "#1A202F",
+          "#222A3E",
+          "#535A6D",
+          "#898E9B",
+          "#BEC1C8",
+          "#EAEAED"
+        ]
+      },
+      "noche-tinta": {
+        "role": "secondary",
+        "displayName": "Tinta Nocturna",
+        "canonical": "#C3C9D8",
+        "tonalRamp": [
+          "#313236",
+          "#585A61",
+          "#7F838C",
+          "#A6ABB8",
+          "#CFD4E0",
+          "#DEE1EA",
+          "#EDEFF3",
+          "#F9FAFB"
+        ]
+      },
+      "luz": {
+        "role": "primary",
+        "displayName": "Luz Encendida",
+        "canonical": "#FFC93C",
+        "tonalRamp": [
+          "#40320F",
+          "#735A1B",
+          "#A68327",
+          "#D9AB33",
+          "#FFD463",
+          "#FFE194",
+          "#FFEFC4",
+          "#FFFAEC"
+        ]
+      },
+      "seguro": {
+        "role": "secondary",
+        "displayName": "Seguro",
+        "canonical": "#1FA463",
+        "tonalRamp": [
+          "#082919",
+          "#0E4A2D",
+          "#146B40",
+          "#1A8B54",
+          "#4CB682",
+          "#84CDA9",
+          "#BCE4D0",
+          "#E9F6EF"
+        ]
+      },
+      "seguro-texto": {
+        "role": "secondary",
+        "displayName": "Seguro texto",
+        "canonical": "#11703F",
+        "tonalRamp": [
+          "#041C10",
+          "#08321C",
+          "#0B4929",
+          "#0E5F36",
+          "#418D65",
+          "#7CB095",
+          "#B8D4C5",
+          "#E7F1EC"
+        ]
+      },
+      "alerta": {
+        "role": "secondary",
+        "displayName": "Alerta",
+        "canonical": "#E2483D",
+        "tonalRamp": [
+          "#38120F",
+          "#66201B",
+          "#932F28",
+          "#C03D34",
+          "#E86D64",
+          "#EF9A94",
+          "#F6C8C5",
+          "#FCEDEC"
+        ]
+      },
+      "alerta-texto": {
+        "role": "secondary",
+        "displayName": "Alerta texto",
+        "canonical": "#B3261E",
+        "tonalRamp": [
+          "#2D0A08",
+          "#51110D",
+          "#741914",
+          "#98201A",
+          "#C2514B",
+          "#D58883",
+          "#E8BEBC",
+          "#F7E9E8"
+        ]
+      },
+      "cielo": {
+        "role": "neutral",
+        "displayName": "Cielo",
+        "canonical": "#DCE5E8",
+        "tonalRamp": [
+          "#37393A",
+          "#636768",
+          "#8F9597",
+          "#BBC3C5",
+          "#E3EAED",
+          "#ECF1F2",
+          "#F4F7F8",
+          "#FCFCFD"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Titular de portada."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de sección."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Planes, oficios, preguntas."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Precios desde, cifras tabulares."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Botones y situaciones."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Bajadas."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido."
+      }
+    },
+    "shadows": [
+      {
+        "name": "button",
+        "value": "0 1px 0 rgba(27,31,39,.1), 0 12px 26px -14px rgba(27,31,39,.7)",
+        "purpose": "Botón principal."
+      },
+      {
+        "name": "phone",
+        "value": "0 2px 0 rgba(0,0,0,.1), 0 30px 50px -24px rgba(16,20,32,.7)",
+        "purpose": "Celular sobre el escenario."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Única curva de la página."
+      },
+      {
+        "name": "night",
+        "value": "filter 1.2s",
+        "purpose": "Paso a noche de la escena."
+      },
+      {
+        "name": "lights",
+        "value": "opacity .7s con retraso escalonado",
+        "purpose": "Las luces se prenden una tras otra."
+      },
+      {
+        "name": "gate",
+        "value": "transform 1.4s",
+        "purpose": "El portón corre."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1360px"
+      },
+      {
+        "name": "stack-hero",
+        "value": "1100px"
+      },
+      {
+        "name": "nav",
+        "value": "1020px"
+      },
+      {
+        "name": "plans-2",
+        "value": "980px"
+      },
+      {
+        "name": "mobile",
+        "value": "760px"
+      },
+      {
+        "name": "plans-1",
+        "value": "620px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción de WhatsApp.",
+      "html": "<a class=\"ds-btn\" href=\"#\"><span class=\"ds-bulb\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M12 3.5a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.4-1.1A8.5 8.5 0 1 0 12 3.5z\"/></svg></span>Cotizar por WhatsApp</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:12px;min-height:56px;padding:8px 24px 8px 8px;border-radius:999px;background:#1B1F27;color:#FFFDF8;font:800 1.08rem/1.1 Gabarito,system-ui,sans-serif;text-decoration:none;box-shadow:0 1px 0 rgba(27,31,39,.1),0 12px 26px -14px rgba(27,31,39,.7);transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-btn:hover{transform:translateY(-2px)}.ds-btn:focus-visible{outline:3px solid #1B1F27;outline-offset:3px}.ds-bulb{width:40px;height:40px;border-radius:50%;background:#FFC93C;color:#1B1F27;display:grid;place-items:center}"
+    },
+    {
+      "name": "Botón fantasma",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Acción secundaria.",
+      "html": "<a class=\"ds-ghost\" href=\"#\">Ver planes y precios</a>",
+      "css": ".ds-ghost{display:inline-flex;align-items:center;min-height:56px;padding:8px 22px;border-radius:999px;box-shadow:inset 0 0 0 2px #1B1F27;color:#1B1F27;font:800 1.08rem Gabarito,system-ui,sans-serif;text-decoration:none}.ds-ghost:hover{background:#FFFDF8}"
+    },
+    {
+      "name": "Situación",
+      "kind": "chip",
+      "refersTo": "scene-chip",
+      "description": "Pastilla para cambiar la escena.",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"true\"><span class=\"ds-ci\"></span>Llego de noche</button> <button class=\"ds-chip\" aria-pressed=\"false\"><span class=\"ds-ci\"></span>A dormir</button>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:6px 14px 6px 7px;border-radius:999px;border:0;background:#FFFDF8;color:#1B1F27;font:700 .98rem Gabarito,system-ui,sans-serif;cursor:pointer}.ds-chip:hover{background:#F3EFE6}.ds-chip[aria-pressed=true]{background:#1B1F27;color:#FFFDF8}.ds-ci{width:30px;height:30px;border-radius:50%;background:#E8E1D2}.ds-chip[aria-pressed=true] .ds-ci{background:#FFC93C}"
+    },
+    {
+      "name": "Aviso",
+      "kind": "card",
+      "refersTo": "notification",
+      "description": "Aviso de ejemplo en el celular.",
+      "html": "<div class=\"ds-notif\"><span class=\"ds-app\">Aviso · 03:10 <em>Ejemplo</em></span><strong>Movimiento en el patio</strong><p>La cámara del patio detectó a una persona.</p></div>",
+      "css": ".ds-notif{background:#FFFDF8;border-radius:18px;padding:10px 12px 12px;display:grid;gap:3px;max-width:240px;font-family:Onest,system-ui,sans-serif;color:#1B1F27}.ds-app{font:700 .74rem Gabarito,sans-serif;color:#4B5261}.ds-app em{font-style:normal;margin-left:6px;border:1.5px solid #D5CDBC;border-radius:999px;padding:0 6px;font-size:.66rem;text-transform:uppercase}.ds-notif strong{font:800 .98rem Gabarito,sans-serif;color:#B3261E}.ds-notif p{margin:0;font-size:.84rem;color:#4B5261}"
+    },
+    {
+      "name": "Marcador de equipo",
+      "kind": "custom",
+      "refersTo": "device-marker",
+      "description": "Estados: reposo, prendido, armado, alerta.",
+      "html": "<svg width=\"200\" height=\"44\" viewBox=\"0 0 200 44\"><circle cx=\"22\" cy=\"22\" r=\"15\" fill=\"#FFFDF8\" stroke=\"#1B1F27\" stroke-width=\"2\"/><circle cx=\"72\" cy=\"22\" r=\"15\" fill=\"#FFC93C\" stroke=\"#1B1F27\" stroke-width=\"2\"/><circle cx=\"122\" cy=\"22\" r=\"15\" fill=\"#FFFDF8\" stroke=\"#1FA463\" stroke-width=\"4\"/><circle cx=\"172\" cy=\"22\" r=\"15\" fill=\"#E2483D\" stroke=\"#FFFDF8\" stroke-width=\"2.5\"/></svg>",
+      "css": ""
+    },
+    {
+      "name": "Campo",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Campo del formulario.",
+      "html": "<input class=\"ds-in\" placeholder=\"Ej.: Maipú\">",
+      "css": ".ds-in{font:1rem Onest,system-ui,sans-serif;background:#FFFDF8;border:2px solid #9AA0AB;border-radius:14px;padding:12px 14px;min-height:52px;color:#1B1F27}.ds-in:hover{border-color:#1B1F27}.ds-in:focus{outline:none;border-color:#1B1F27;box-shadow:0 0 0 4px rgba(255,201,60,.65)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La casa en miniatura",
+    "overview": "Nodo muestra lo que vende: la casa o el local en corte isométrico, con cada equipo funcionando. El visitante toca una situación y ve la escena cambiar y el aviso llegar al celular. Muro de cal, madera, noche y una sola luz amarilla.",
+    "keyCharacteristics": [
+      "Escena isométrica funcional como prueba",
+      "Marcadores con estado por color",
+      "Amarillo prendido, verde armado, rojo alerta",
+      "Gabarito rotula, Onest se lee"
+    ],
+    "rules": [
+      {
+        "name": "Un color, un significado",
+        "body": "Amarillo es prendido, verde armado, rojo alerta; ningún adorno los usa.",
+        "section": "colors"
+      },
+      {
+        "name": "La regla del rótulo",
+        "body": "Todo lo rotulado en Gabarito; texto corrido en Onest.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Dibujar con el motor Iso",
+      "Rotular escenas como ejemplo",
+      "Explicar la línea económica en cada escena"
+    ],
+    "donts": [
+      "Prometer una sola app o sin internet en la económica",
+      "Inventar clientes o cifras",
+      "Usar colores de estado como decoración"
+    ]
+  }
+}

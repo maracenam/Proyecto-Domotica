@@ -1,0 +1,1102 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nodo Domótica | Cámaras, alarma y luces en tu celular, en Santiago</title>
+<meta name="description" content="Instalamos cámaras, alarma, luces, portón y control de frío y consumo para casas y negocios en Santiago. Planes desde $69.990 con instalación. Visita y cotización sin costo.">
+<meta property="og:title" content="Nodo Domótica: tu casa y tu negocio, a la vista desde el celular">
+<meta property="og:description" content="Cámaras, alarma, luces y portón para casas y negocios en Santiago. Visita y cotización sin costo.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta name="theme-color" content="#F3EFE6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231C2333'/%3E%3Cpath d='M16 6 26 11.5 16 17 6 11.5Z' fill='%23F3EFE6'/%3E%3Cpath d='M6 11.5 16 17v9L6 20.5Z' fill='%23C9A27A'/%3E%3Cpath d='M26 11.5 16 17v9l10-5.5Z' fill='%23A8825C'/%3E%3Ccircle cx='16' cy='11.5' r='2.6' fill='%23FFC93C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600;700;800;900&family=Onest:wght@400;500;700&display=swap">
+<style>
+:root {
+  --cal: #F3EFE6;
+  --cal-2: #E8E1D2;
+  --papel: #FFFDF8;
+  --tinta: #1B1F27;
+  --tinta-2: #4B5261;
+  --regla: #D5CDBC;
+  --madera: #C9A27A;
+  --noche: #1C2333;
+  --noche-2: #283149;
+  --noche-tinta: #C3C9D8;
+  --luz: #FFC93C;
+  --seguro: #1FA463;
+  --seguro-texto: #11703F;
+  --alerta: #E2483D;
+  --alerta-texto: #B3261E;
+  --cielo: #DCE5E8;
+  --display: "Gabarito", "Segoe UI", system-ui, sans-serif;
+  --body: "Onest", "Segoe UI", system-ui, sans-serif;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --shell: 1240px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --block: clamp(72px, 10vw, 128px);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 80px; scrollbar-color: var(--tinta-2) var(--cal); }
+body { margin: 0; background: var(--cal); color: var(--tinta); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; caret-color: var(--tinta); }
+::selection { background: var(--luz); color: var(--tinta); }
+h1, h2, h3 { font-family: var(--display); margin: 0; line-height: 1.04; text-wrap: balance; letter-spacing: -0.02em; font-weight: 800; }
+h1 { font-size: clamp(2.5rem, 4.9vw, 4.1rem); font-weight: 900; letter-spacing: -0.03em; }
+h2 { font-size: clamp(2rem, 4.2vw, 3.3rem); }
+h3 { font-size: 1.3rem; line-height: 1.15; letter-spacing: -0.01em; }
+p { margin: 0; }
+a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 2px; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+svg { display: block; }
+:focus-visible { outline: 3px solid var(--tinta); outline-offset: 3px; border-radius: 6px; }
+.on-dark :focus-visible { outline-color: var(--luz); }
+.shell { width: min(var(--shell), 100%); margin-inline: auto; padding-inline: var(--gutter); }
+.lede { font-size: clamp(1.1rem, 1.5vw, 1.22rem); color: var(--tinta-2); max-width: 52ch; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--tinta); color: var(--papel); padding: 10px 16px; border-radius: 999px; z-index: 60; font-weight: 700; }
+.skip:focus { left: 12px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ico { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Botones */
+.btn { display: inline-flex; align-items: center; gap: 12px; min-height: 56px; padding: 8px 24px 8px 8px; border-radius: 999px; background: var(--tinta); color: var(--papel); font: 800 1.08rem/1.1 var(--display); text-decoration: none; border: 0; cursor: pointer; transition: transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease); box-shadow: 0 1px 0 rgba(27,31,39,.1), 0 12px 26px -14px rgba(27,31,39,.7); }
+.btn .bulb { width: 40px; height: 40px; border-radius: 50%; background: var(--luz); color: var(--tinta); display: grid; place-items: center; flex: none; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 1px 0 rgba(27,31,39,.1), 0 18px 32px -16px rgba(27,31,39,.75); }
+.btn:active { transform: translateY(0); }
+.btn.ghost { background: transparent; color: var(--tinta); box-shadow: inset 0 0 0 2px var(--tinta); padding: 8px 22px; }
+.btn.ghost:hover { background: var(--papel); }
+.btn.on-night { background: var(--luz); color: var(--tinta); }
+.btn.on-night .bulb { background: var(--tinta); color: var(--luz); }
+
+/* Cabecera */
+.top { position: sticky; top: 0; z-index: 30; background: rgba(243, 239, 230, .94); border-bottom: 1px solid var(--regla); }
+@supports (backdrop-filter: blur(1px)) { .top { background: rgba(243, 239, 230, .8); backdrop-filter: saturate(1.3) blur(14px); } }
+.top .shell { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 68px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 900 1.5rem var(--display); letter-spacing: -0.03em; }
+.brand svg { width: 34px; height: 34px; }
+.top nav ul { display: flex; gap: 4px; }
+.top nav a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; font: 700 .98rem var(--display); padding: 8px 14px; border-radius: 999px; color: var(--tinta-2); transition: background .25s var(--ease), color .25s var(--ease); }
+.top nav a:hover { background: var(--papel); color: var(--tinta); }
+.top .btn { min-height: 46px; padding: 4px 18px 4px 4px; font-size: 1rem; box-shadow: none; }
+.top .btn .bulb { width: 38px; height: 38px; }
+@media (max-width: 1020px) { .top nav { display: none; } }
+
+/* Portada */
+.hero { padding-block: clamp(28px, 4vw, 56px) clamp(56px, 7vw, 96px); }
+.hero .shell { display: grid; grid-template-columns: minmax(0, 5.2fr) minmax(0, 6.8fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.hero-copy { padding-top: clamp(8px, 4vw, 64px); }
+.hero-copy { display: grid; gap: 22px; align-content: center; }
+.hero-copy h1 { max-width: 12ch; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.hero-fine { font-size: .98rem; color: var(--tinta-2); display: flex; gap: 10px; align-items: flex-start; max-width: 40ch; }
+.hero-fine .ico { width: 20px; height: 20px; color: var(--seguro-texto); margin-top: 3px; }
+
+/* Escena */
+.stage { position: relative; background: var(--cielo); border-radius: 28px; padding: 16px 16px 18px; display: grid; gap: 10px; transition: background 1s var(--ease); isolation: isolate; }
+.stage.is-night { background: #2A3350; }
+.stage-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; position: relative; z-index: 2; }
+.switch { display: inline-flex; background: var(--papel); border-radius: 999px; padding: 4px; gap: 2px; box-shadow: 0 1px 0 rgba(27,31,39,.06), 0 6px 18px -12px rgba(27,31,39,.5); }
+.switch button { display: inline-flex; align-items: center; gap: 8px; border: 0; background: transparent; color: var(--tinta-2); font: 800 1rem var(--display); min-height: 44px; padding: 6px 18px 6px 12px; border-radius: 999px; cursor: pointer; transition: background .3s var(--ease), color .3s var(--ease); }
+.switch button:hover { color: var(--tinta); background: var(--cal); }
+.switch button[aria-pressed="true"] { background: var(--tinta); color: var(--papel); }
+.stage-tag { position: absolute; left: 18px; bottom: 16px; z-index: 2; font: 700 .82rem var(--display); color: var(--tinta-2); background: rgba(255,253,248,.7); border-radius: 999px; padding: 6px 12px; transition: color .6s, background .6s; }
+.is-night .stage-tag { color: var(--noche-tinta); background: rgba(28,35,51,.6); }
+.scenes { display: flex; flex-wrap: wrap; gap: 6px; position: relative; z-index: 2; }
+.scenes button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 6px 14px 6px 7px; border-radius: 999px; border: 0; background: rgba(255,253,248,.82); color: var(--tinta); font: 700 .98rem var(--display); cursor: pointer; transition: background .3s var(--ease), color .3s var(--ease), transform .3s var(--ease); }
+.scenes button .chip-ico { width: 30px; height: 30px; border-radius: 50%; background: var(--cal-2); display: grid; place-items: center; transition: background .3s var(--ease); }
+.scenes button .chip-ico .ico { width: 18px; height: 18px; }
+.scenes button:hover { background: var(--papel); transform: translateY(-1px); }
+.scenes button[aria-pressed="true"] { background: var(--tinta); color: var(--papel); }
+.scenes button[aria-pressed="true"] .chip-ico { background: var(--luz); color: var(--tinta); }
+.is-night .scenes button:not([aria-pressed="true"]) { background: rgba(255,253,248,.14); color: var(--papel); }
+.is-night .scenes button:not([aria-pressed="true"]) .chip-ico { background: rgba(255,253,248,.14); }
+.scene-wrap { position: relative; margin: -18px -6px 0; }
+.scene { width: 100%; height: auto; overflow: visible; }
+
+/* Dibujo isométrico */
+.iso polygon, .iso path.edge { stroke: #1B1F27; stroke-opacity: .5; stroke-width: 1; stroke-linejoin: round; }
+.iso .ns, .iso .ns polygon { stroke: none; }
+.iso .cord { stroke: #1B1F27; stroke-width: 1.4; stroke-opacity: .6; }
+.iso .struct { transition: filter 1.2s var(--ease); }
+.iso.night .struct { filter: brightness(.46) saturate(.7); }
+.iso .glow { opacity: 0; mix-blend-mode: screen; transition: opacity .7s var(--ease); }
+.iso .glow.lit { opacity: 1; }
+.iso .bulb-l { fill: #F2EDE2; transition: fill .5s var(--ease); }
+.iso .bulb-l.lit { fill: var(--luz); }
+.iso .face-l { opacity: 0; transition: opacity .6s var(--ease); }
+.iso .face-l.lit { opacity: 1; }
+.iso .show { opacity: 0; transition: opacity .6s var(--ease), transform .8s var(--ease); }
+.iso .show.shown { opacity: 1; }
+.iso .gate { transition: transform 1.4s var(--ease); }
+.iso .gate.open { transform: translate(var(--gx), var(--gy)); }
+.iso .mk .ring { fill: var(--papel); stroke: var(--tinta); stroke-width: 2; transition: fill .4s var(--ease), stroke .4s var(--ease); }
+.iso .mk use { color: var(--tinta); transition: color .4s var(--ease); }
+.iso .mk .halo { fill: none; stroke: var(--alerta); stroke-width: 3; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.iso .mk.on .ring { fill: var(--luz); }
+.iso .mk.armed .ring { stroke: var(--seguro); stroke-width: 4; }
+.iso .mk.armed use { color: var(--seguro-texto); }
+.iso .mk.off .ring { fill: #DDD8CC; stroke: #7E8490; }
+.iso .mk.off use { color: #5C6370; }
+.iso .mk.alert .ring { fill: var(--alerta); stroke: var(--papel); stroke-width: 2.5; }
+.iso .mk.alert use { color: #FFFFFF; }
+.iso .mk.alert .halo { animation: halo 1.6s var(--ease) infinite; }
+@keyframes halo { from { opacity: .9; transform: scale(1); } to { opacity: 0; transform: scale(2.1); } }
+.iso .tag-t { font: 800 13px var(--display); fill: #FFFFFF; }
+
+/* Aviso en el celular */
+.phone { position: absolute; right: -22px; bottom: -26px; width: 228px; background: var(--tinta); border-radius: 34px; padding: 9px; box-shadow: 0 2px 0 rgba(0,0,0,.1), 0 30px 50px -24px rgba(16,20,32,.7); z-index: 3; }
+.phone-screen { background: linear-gradient(180deg, #34406A 0%, #1C2333 100%); border-radius: 26px; padding: 14px 10px 14px; min-height: 250px; display: grid; align-content: start; gap: 10px; color: #FFFFFF; }
+.phone-notch { width: 70px; height: 20px; border-radius: 999px; background: var(--tinta); justify-self: center; margin-top: -6px; }
+.ph-time { font: 700 2.7rem/1 var(--display); text-align: center; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.notif { background: rgba(255,253,248,.94); color: var(--tinta); border-radius: 18px; padding: 10px 12px 12px; display: grid; gap: 3px; }
+.notif-app { display: flex; align-items: center; gap: 6px; font: 700 .74rem var(--display); color: var(--tinta-2); }
+.notif-app i { width: 18px; height: 18px; border-radius: 6px; background: var(--tinta); display: grid; place-items: center; color: var(--luz); }
+.notif-app i .ico { width: 12px; height: 12px; stroke-width: 2.6; }
+.notif-app .ex { margin-left: auto; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; font-size: .66rem; border: 1.5px solid var(--regla); border-radius: 999px; padding: 1px 7px 0; }
+.notif strong { font: 800 .98rem/1.2 var(--display); }
+.notif p { font-size: .84rem; line-height: 1.35; color: var(--tinta-2); }
+.notif.alerta strong { color: var(--alerta-texto); }
+.notif .extra svg { width: 100%; height: auto; margin-top: 6px; border-radius: 10px; }
+.notif.swap { animation: notif-in .7s var(--ease); }
+@keyframes notif-in { from { opacity: 0; transform: translateY(-14px) scale(.96); } to { opacity: 1; transform: none; } }
+
+/* Qué pasó */
+.story { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr); gap: 12px 16px; margin-top: 48px; }
+.lines-mini { display: contents; }
+.story h2 { font-size: 1.05rem; letter-spacing: -0.01em; margin-bottom: 8px; }
+.story ol li { position: relative; padding-left: 22px; font-size: .98rem; color: var(--tinta-2); }
+.story ol li + li { margin-top: 4px; }
+.story ol li::before { content: ""; position: absolute; left: 2px; top: .5em; width: 10px; height: 10px; border-radius: 50%; background: var(--luz); box-shadow: 0 0 0 2px var(--tinta); }
+.lines-mini p { align-self: start; font-size: .95rem; color: var(--tinta-2); padding: 10px 14px 11px; border-radius: 14px; }
+.lines-mini b { font-family: var(--display); font-weight: 800; color: var(--tinta); display: block; font-size: .92rem; }
+.lines-mini .l-eco { background: var(--papel); box-shadow: inset 0 0 0 1.5px var(--regla); }
+.lines-mini .l-cen { background: var(--noche); color: var(--noche-tinta); }
+.lines-mini .l-cen b { color: var(--luz); }
+
+@media (min-width: 1360px) { .phone { right: -64px; } }
+@media (max-width: 1100px) {
+  .hero .shell { grid-template-columns: minmax(0, 1fr); }
+  .hero-copy h1 { max-width: 14ch; }
+  .phone { right: 14px; bottom: -28px; }
+  .story { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .story > div:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 760px) {
+  .stage { border-radius: 22px; padding: 12px 10px 14px; }
+  .scene-wrap { margin-inline: -4px; }
+  .phone { position: static; width: auto; background: none; box-shadow: none; padding: 0; }
+  .phone-screen { background: none; padding: 0; min-height: 0; }
+  .phone-notch, .ph-time { display: none; }
+  .notif { box-shadow: 0 10px 24px -16px rgba(16,20,32,.6); }
+  .story { grid-template-columns: minmax(0, 1fr); margin-top: 18px; }
+  .stage-tag { position: static; justify-self: start; }
+  .scenes button { font-size: .94rem; padding-right: 13px; }
+}
+
+/* Secciones */
+.block { padding-block: var(--block); }
+.block-head { display: grid; gap: 16px; margin-bottom: clamp(36px, 5vw, 60px); max-width: 780px; }
+
+/* Planes */
+.plans-band { background: var(--papel); border-block: 1px solid var(--regla); }
+.plans { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(14px, 2vw, 24px); }
+.plan { grid-column: span 2; display: grid; grid-template-rows: auto auto 1fr auto; gap: 10px; padding: 8px 4px 0; }
+.plan:nth-child(4), .plan:nth-child(5) { grid-column: span 3; }
+.plan-pic { background: var(--cal); border-radius: 22px; aspect-ratio: 16 / 10; display: grid; place-items: center; overflow: hidden; }
+.plan-pic svg { width: 78%; height: auto; max-height: 90%; }
+.plan:nth-child(4) .plan-pic, .plan:nth-child(5) .plan-pic { aspect-ratio: 16 / 7.4; }
+.plan:nth-child(4) .plan-pic svg, .plan:nth-child(5) .plan-pic svg { width: 46%; }
+.plan-name { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+.plan-name h3 { font-size: 1.45rem; }
+.plan-for { font: 700 .82rem var(--display); color: var(--tinta-2); border: 1.5px solid var(--regla); border-radius: 999px; padding: 2px 10px 1px; }
+.plan > p:not(.price) { color: var(--tinta-2); max-width: 46ch; }
+.plan ul { display: grid; gap: 4px; font-size: .96rem; }
+.plan ul li { position: relative; padding-left: 20px; }
+.plan ul li::before { content: ""; position: absolute; left: 1px; top: .55em; width: 8px; height: 8px; border-radius: 50%; border: 2px solid var(--tinta); }
+.price { display: flex; align-items: baseline; gap: 8px; padding-top: 12px; margin-top: 4px; border-top: 1px solid var(--regla); }
+.price span { font: 700 .92rem var(--display); color: var(--tinta-2); }
+.price strong { color: var(--tinta); font: 900 1.7rem/1 var(--display); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.packs { margin-top: clamp(48px, 6vw, 72px); background: var(--noche); color: #FFFFFF; border-radius: 28px; padding: clamp(24px, 4vw, 44px); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 4vw, 56px); }
+.packs h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.packs-head p { color: var(--noche-tinta); margin-top: 12px; }
+.packs ul { display: grid; }
+.packs li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 20px; padding-block: 16px; border-top: 1px solid rgba(195,201,216,.25); align-items: baseline; }
+.packs li:first-child { border-top: 0; padding-top: 0; }
+.packs li strong { font: 800 1.25rem var(--display); }
+.packs li .incl { grid-column: 1; color: var(--noche-tinta); font-size: .97rem; }
+.packs li .pp { grid-column: 2; grid-row: 1 / span 2; text-align: right; }
+.packs li .pp b { display: block; font: 900 1.6rem/1 var(--display); color: var(--luz); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.packs li .pp small { font-size: .86rem; color: var(--noche-tinta); }
+.support { margin-top: 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.support div { background: var(--cal); border-radius: 20px; padding: 18px 20px; display: grid; gap: 4px; }
+.support strong { font: 800 1.12rem var(--display); }
+.support b { font-family: var(--display); font-weight: 900; font-variant-numeric: tabular-nums; }
+.support p { color: var(--tinta-2); font-size: .97rem; }
+.fine { color: var(--tinta-2); font-size: .95rem; margin-top: 20px; max-width: 80ch; }
+@media (max-width: 980px) {
+  .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .plan, .plan:nth-child(4), .plan:nth-child(5) { grid-column: span 1; }
+  .plan:nth-child(4) .plan-pic, .plan:nth-child(5) .plan-pic { aspect-ratio: 16 / 10; }
+  .plan:nth-child(4) .plan-pic svg, .plan:nth-child(5) .plan-pic svg { width: 78%; }
+  .plan:nth-child(5) { grid-column: 1 / -1; }
+  .packs { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 620px) {
+  .plans { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .support { grid-template-columns: minmax(0, 1fr); }
+  .packs li { grid-template-columns: minmax(0, 1fr); }
+  .packs li .pp { grid-column: 1; grid-row: auto; text-align: left; margin-top: 6px; }
+}
+
+/* Dos líneas */
+.compare { display: grid; grid-template-columns: minmax(150px, .7fr) minmax(0, 1fr) minmax(0, 1fr); border-radius: 28px; overflow: hidden; }
+.compare > div { padding: 16px 22px; }
+.c-head { padding-top: 26px !important; padding-bottom: 22px !important; display: grid; gap: 10px; align-content: start; }
+.c-head svg { width: 120px; height: auto; margin-bottom: 4px; }
+.c-head h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
+.c-head p { font-size: 1rem; }
+.c-eco { background: var(--papel); }
+.c-cen { background: var(--noche); color: #FFFFFF; }
+.c-cen p, .c-cen.c-cell { color: var(--noche-tinta); }
+.c-key { font: 800 .98rem/1.3 var(--display); color: var(--tinta); background: var(--cal-2); }
+.c-cell { font-size: .99rem; border-top: 1px solid var(--regla); }
+.c-cen.c-cell { border-top-color: rgba(195,201,216,.2); }
+.c-key { border-top: 1px solid var(--regla); }
+.c-corner { background: var(--cal-2); }
+.c-cell b { font-family: var(--display); font-weight: 800; }
+.c-cen b { color: #FFFFFF; }
+@media (max-width: 760px) {
+  .compare { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border-radius: 22px; }
+  .compare > div { padding: 12px 14px; }
+  .c-corner { display: none; }
+  .c-key { grid-column: 1 / -1; padding-top: 14px !important; padding-bottom: 6px !important; font-size: .9rem; }
+  .c-cell { font-size: .92rem; line-height: 1.45; border-top: 0; }
+  .c-head svg { width: 84px; }
+}
+
+/* Cómo trabajamos */
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 2.6vw, 32px); position: relative; }
+.steps li { display: grid; gap: 10px; align-content: start; }
+.steps .s-ico { width: 56px; height: 56px; border-radius: 18px; background: var(--papel); display: grid; place-items: center; box-shadow: 0 1px 0 rgba(27,31,39,.06), 0 10px 20px -16px rgba(27,31,39,.6); }
+.steps .s-ico .ico { width: 26px; height: 26px; }
+.steps li:first-child .s-ico { background: var(--luz); }
+.steps strong { font: 800 1.2rem/1.2 var(--display); }
+.steps p { color: var(--tinta-2); }
+@media (max-width: 860px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; } }
+@media (max-width: 480px) { .steps { grid-template-columns: minmax(0, 1fr); } .steps li { grid-template-columns: 56px minmax(0, 1fr); column-gap: 16px; } .steps li > div { display: grid; gap: 4px; } }
+
+/* Quiénes */
+.who { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
+.who-list { display: grid; gap: 16px; margin-top: 28px; }
+.who-list li { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 16px; align-items: start; background: var(--papel); border-radius: 22px; padding: 18px; }
+.who-list .pin { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; }
+.who-list p { color: var(--tinta-2); margin-top: 2px; }
+.hours { display: grid; gap: 6px; padding: 22px 24px; border-radius: 22px; background: var(--noche); color: var(--noche-tinta); }
+.hours strong { font: 800 1.15rem var(--display); color: #FFFFFF; }
+.hours .num { font-family: var(--display); font-weight: 700; color: var(--luz); }
+@media (max-width: 860px) { .who { grid-template-columns: minmax(0, 1fr); } }
+
+/* Preguntas */
+.faq { max-width: 860px; }
+.faq details { border-bottom: 1px solid var(--regla); }
+.faq details:first-child { border-top: 1px solid var(--regla); }
+.faq summary { cursor: pointer; list-style: none; display: grid; grid-template-columns: minmax(0, 1fr) 32px; gap: 14px; align-items: center; padding-block: 20px; font: 800 1.18rem/1.3 var(--display); min-height: 44px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: ""; width: 32px; height: 32px; border-radius: 50%; background: var(--papel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231B1F27' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center / 18px no-repeat; transition: transform .35s var(--ease), background-color .3s var(--ease); }
+.faq details[open] summary::after { transform: rotate(45deg); background-color: var(--luz); }
+.faq summary:hover::after { background-color: var(--cal-2); }
+.faq details[open] summary:hover::after { background-color: var(--luz); }
+.faq details p { color: var(--tinta-2); padding: 0 48px 22px 0; max-width: 68ch; }
+
+/* Contacto */
+.contact-band { background: var(--noche); color: #FFFFFF; }
+.contact { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
+.contact-copy { display: grid; gap: 20px; }
+.contact-copy .lede { color: var(--noche-tinta); }
+.contact-copy p { color: var(--noche-tinta); }
+.contact-phone { font: 900 clamp(1.5rem, 3vw, 2rem) var(--display); color: var(--luz); text-decoration: none; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.contact-phone:hover { text-decoration: underline; }
+form { background: var(--cal); color: var(--tinta); border-radius: 28px; padding: clamp(20px, 3vw, 34px); display: grid; gap: 22px; }
+.field { display: grid; gap: 6px; }
+.field label, legend { font: 800 1rem var(--display); padding: 0; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 560px) { .two { grid-template-columns: 1fr; } }
+input[type="text"], textarea { font: inherit; color: var(--tinta); background: var(--papel); border: 2px solid #9AA0AB; border-radius: 14px; padding: 12px 14px; width: 100%; min-height: 52px; transition: border-color .2s var(--ease), box-shadow .2s var(--ease); }
+input::placeholder, textarea::placeholder { color: #6A707C; }
+textarea { min-height: 104px; resize: vertical; }
+input[type="text"]:hover, textarea:hover { border-color: var(--tinta); }
+input[type="text"]:focus, textarea:focus { outline: none; border-color: var(--tinta); box-shadow: 0 0 0 4px rgba(255,201,60,.65); }
+input[aria-invalid="true"] { border-color: var(--alerta-texto); }
+.error { color: var(--alerta-texto); font-size: .95rem; font-weight: 700; }
+fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips label { position: relative; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 6px 16px 6px 10px; border: 2px solid #9AA0AB; border-radius: 999px; cursor: pointer; font-weight: 500; user-select: none; background: var(--papel); transition: border-color .2s var(--ease), background .2s var(--ease); }
+.chips label::before { content: ""; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #9AA0AB; background: var(--papel); flex: none; transition: background .2s var(--ease), border-color .2s var(--ease); }
+.chips label:hover { border-color: var(--tinta); }
+.chips input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.chips label:has(input:checked) { border-color: var(--tinta); background: var(--tinta); color: var(--papel); font-weight: 700; }
+.chips label:has(input:checked)::before { border-color: var(--luz); background: var(--luz); }
+.chips label:has(input:focus-visible) { outline: 3px solid var(--tinta); outline-offset: 3px; }
+form .btn { justify-self: start; }
+.form-fine { color: var(--tinta-2); font-size: .94rem; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } form .btn { width: 100%; } }
+
+footer { background: #131826; color: var(--noche-tinta); }
+footer .shell { padding-block: 32px 112px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px 28px; font-size: .96rem; }
+footer strong { color: #FFFFFF; font-family: var(--display); font-weight: 900; }
+@media (min-width: 761px) { footer .shell { padding-block: 32px; } }
+
+/* Barra fija en celular */
+.dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(243, 239, 230, .96); border-top: 1px solid var(--regla); display: none; transition: transform .35s var(--ease); }
+.dock.hide { transform: translateY(110%); }
+.dock .btn { width: 100%; box-shadow: none; }
+@media (max-width: 760px) { .dock { display: block; } .top .btn { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0s !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cam" viewBox="0 0 24 24"><rect x="3" y="7" width="13" height="10" rx="2.5"/><path d="m16 11 5-2.5v7L16 13"/><circle cx="8" cy="12" r="1.6"/></symbol>
+  <symbol id="i-sirena" viewBox="0 0 24 24"><path d="M6 18v-5a6 6 0 0 1 12 0v5"/><path d="M4 18h16v2.5H4zM12 3v2M4.2 6.2l1.4 1.4M19.8 6.2l-1.4 1.4"/></symbol>
+  <symbol id="i-luz" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.2h5c0-.9.4-1.7 1.1-2.2A6 6 0 0 0 12 3z"/></symbol>
+  <symbol id="i-porton" viewBox="0 0 24 24"><path d="M3 21V5M21 21V5M3 8h18M7 8v13M11 8v13M15 8v13M19 8v13"/></symbol>
+  <symbol id="i-energia" viewBox="0 0 24 24"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z"/></symbol>
+  <symbol id="i-frio" viewBox="0 0 24 24"><path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0z"/><path d="M12 11v6"/></symbol>
+  <symbol id="i-letrero" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="10" rx="2"/><path d="M8 15v5M16 15v5M7 10h10"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.4-1.1A8.5 8.5 0 1 0 12 3.5z"/><path d="M9 9.2c0 3 2.6 5.8 5.8 5.8l1-1.6-1.9-1-1 .8c-1-.4-1.9-1.3-2.3-2.3l.8-1-1-1.9z"/></symbol>
+  <symbol id="i-casa" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="i-local" viewBox="0 0 24 24"><path d="M4 9.5 5.5 4h13L20 9.5"/><path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5.5 12v8h13v-8M10 20v-4.5h4V20"/></symbol>
+  <symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.3 2.7 2.7L16.2 9.5"/></symbol>
+  <symbol id="i-herr" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0-5.3 5L3.5 17.2l3.3 3.3 5.7-5.7a4 4 0 0 0 5-5.3l-2.6 2.6-2.4-.6-.6-2.4z"/></symbol>
+  <symbol id="i-app" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></symbol>
+  <symbol id="i-obra" viewBox="0 0 24 24"><path d="M4 20h16M6 20V10l6-5 6 5v10"/><path d="M10 20v-6h4v6"/></symbol>
+  <symbol id="i-puerta" viewBox="0 0 24 24"><path d="M6 21V4h10v17M4 21h16"/><path d="M13 12h.01" stroke-width="3"/><path d="M19 8v6"/></symbol>
+  <symbol id="i-mov" viewBox="0 0 24 24"><circle cx="12" cy="17" r="2"/><path d="M8.5 13.5a5 5 0 0 1 7 0M5.6 10.6a9 9 0 0 1 12.8 0"/></symbol>
+  <symbol id="i-enchufe" viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6 8h12v4a6 6 0 0 1-12 0zM12 18v3"/></symbol>
+  <symbol id="i-aire" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="7" rx="2"/><path d="M7 15c0 2 1 3 0 5M12 15v5M17 15c0 2-1 3 0 5"/></symbol>
+  <symbol id="i-salir" viewBox="0 0 24 24"><path d="M14 4h5v16h-5M10 8l-4 4 4 4M6 12h10"/></symbol>
+  <symbol id="i-llegar" viewBox="0 0 24 24"><path d="M3 18h18M5 18l1.5-5h11L19 18M8 13l1.2-3h5.6L16 13"/><circle cx="8" cy="18" r="1.6"/><circle cx="16" cy="18" r="1.6"/></symbol>
+  <symbol id="i-luna" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+  <symbol id="i-abrir" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></symbol>
+  <symbol id="i-candado" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="i-precio" viewBox="0 0 24 24"><path d="M5 3h14v18l-3.5-2-3.5 2-3.5-2L5 21z"/><path d="M9 8h6M9 12h6M9 16h3"/></symbol>
+</svg>
+
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="top">
+  <div class="shell">
+    <a class="brand" href="#inicio" aria-label="Nodo Domótica, inicio">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4 28 10.5 16 17 4 10.5Z" fill="#FFFDF8" stroke="#1B1F27" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 10.5 16 17v11L4 21.5Z" fill="#C9A27A" stroke="#1B1F27" stroke-width="1.6" stroke-linejoin="round"/><path d="M28 10.5 16 17v11l12-6.5Z" fill="#1C2333" stroke="#1B1F27" stroke-width="1.6" stroke-linejoin="round"/><circle cx="16" cy="10.5" r="3" fill="#FFC93C" stroke="#1B1F27" stroke-width="1.6"/></svg>
+      Nodo
+    </a>
+    <nav aria-label="Secciones">
+      <ul>
+        <li><a href="#inicio">Qué hace</a></li>
+        <li><a href="#planes">Planes y precios</a></li>
+        <li><a href="#lineas">Dos líneas</a></li>
+        <li><a href="#nosotros">Quiénes somos</a></li>
+        <li><a href="#preguntas">Preguntas</a></li>
+      </ul>
+    </nav>
+    <a class="btn js-wa" href="#contacto"><span class="bulb"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></span>Cotizar por WhatsApp</a>
+  </div>
+</header>
+
+<main id="contenido">
+  <section class="hero" id="inicio" aria-labelledby="titulo">
+    <div class="shell">
+      <div class="hero-copy">
+        <h1 id="titulo">Tu casa y tu negocio, a la vista desde el celular.</h1>
+        <p class="lede">Instalamos cámaras, alarma, luces, portón y control de frío y consumo, y te los dejamos funcionando en tu celular. Toca una situación y mira qué hace cada equipo.</p>
+        <div class="hero-actions">
+          <a class="btn js-wa" href="#contacto"><span class="bulb"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></span>Cotizar por WhatsApp</a>
+          <a class="btn ghost" href="#planes">Ver planes y precios</a>
+        </div>
+        <p class="hero-fine"><svg class="ico" aria-hidden="true"><use href="#i-ok"/></svg>Visita y cotización sin costo, en toda la Región Metropolitana.</p>
+      </div>
+
+      <div class="demo">
+        <div class="stage" id="stage">
+          <div class="stage-bar">
+            <div class="switch" role="group" aria-label="Ver una casa o un negocio">
+              <button type="button" data-place="casa" aria-pressed="true"><svg class="ico" aria-hidden="true"><use href="#i-casa"/></svg>Una casa</button>
+              <button type="button" data-place="negocio" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-local"/></svg>Un negocio</button>
+            </div>
+          </div>
+          <div class="scenes" id="scenes" role="group" aria-label="Situaciones"></div>
+          <div class="scene-wrap" id="scene-wrap"></div>
+          <span class="stage-tag">Escena de ejemplo</span>
+          <div class="phone" aria-live="polite">
+            <div class="phone-screen">
+              <span class="phone-notch" aria-hidden="true"></span>
+              <span class="ph-time" id="ph-time">21:30</span>
+              <div class="notif" id="notif"></div>
+            </div>
+          </div>
+        </div>
+        <div class="story">
+          <div>
+            <h2 id="story-t">Qué pasó</h2>
+            <ol id="story"></ol>
+          </div>
+          <div class="lines-mini">
+            <p class="l-eco"><b>En la línea económica</b><span id="note-eco"></span></p>
+            <p class="l-cen"><b>Con central local</b><span id="note-cen"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block plans-band" id="planes" aria-labelledby="planes-t">
+    <div class="shell">
+      <div class="block-head">
+        <h2 id="planes-t">Arma tu instalación por partes.</h2>
+        <p class="lede">Puedes partir con un plan y sumar otro después. Los precios incluyen equipos, instalación e IVA, en la línea económica. Te confirmamos el valor final después de la visita, según tu casa o local.</p>
+      </div>
+      <div class="plans" id="plans"></div>
+
+      <div class="packs">
+        <div class="packs-head">
+          <h3>Todo en una sola visita, por menos.</h3>
+          <p>Si juntas planes, instalamos todo el mismo día y el precio baja.</p>
+        </div>
+        <ul>
+          <li><strong>Casa Segura o Negocio Seguro</strong><span class="incl">Cámaras y alarma.</span><span class="pp"><b>$349.990</b><small>$19.990 menos que por separado</small></span></li>
+          <li><strong>Casa Completa</strong><span class="incl">Cámaras, alarma, luces y enchufes, y portón.</span><span class="pp"><b>$559.990</b><small>$59.970 menos que por separado</small></span></li>
+          <li><strong>Negocio Completo</strong><span class="incl">Cámaras, alarma, y energía y frío.</span><span class="pp"><b>$619.990</b><small>$39.980 menos que por separado</small></span></li>
+        </ul>
+      </div>
+
+      <div class="support">
+        <div><strong>Soporte mensual Hogar · <b>$14.990</b> al mes</strong><p>Acceso a distancia, actualizaciones, respaldo de tu configuración y ayuda por WhatsApp en nuestro horario.</p></div>
+        <div><strong>Soporte mensual Negocio · <b>$34.990</b> al mes</strong><p>Lo mismo, más avisos al dueño a toda hora, reporte mensual de consumo y ajustes de horarios.</p></div>
+      </div>
+      <p class="fine">El soporte mensual es opcional: la instalación se paga una sola vez. Precios de referencia de noviembre de 2026; pueden cambiar según el stock y el precio de los equipos.</p>
+    </div>
+  </section>
+
+  <section class="block" id="lineas" aria-labelledby="lineas-t">
+    <div class="shell">
+      <div class="block-head">
+        <h2 id="lineas-t">Dos formas de instalarlo. Tú eliges.</h2>
+        <p class="lede">Los mismos planes se pueden instalar de dos maneras. Cambia cuántas apps usas y qué pasa si se corta internet.</p>
+      </div>
+      <div class="compare" role="table" aria-label="Comparación de la línea económica y la línea con central local">
+        <div class="c-corner" role="columnheader"><span class="sr">Tema</span></div>
+        <div class="c-eco c-head" role="columnheader"><span id="pic-eco"></span><h3>Línea económica</h3><p>Lo esencial al menor costo, con equipos de consumo masivo bien instalados y configurados.</p></div>
+        <div class="c-cen c-head" role="columnheader"><span id="pic-cen"></span><h3>Línea con central local</h3><p>Sumamos un pequeño equipo central que queda en tu casa o local.</p></div>
+
+        <div class="c-key" role="rowheader">Apps</div>
+        <div class="c-eco c-cell" role="cell">Dos: <b>eWeLink</b> para cámaras, luces, portón y energía, y <b>Smart Life</b> para la alarma.</div>
+        <div class="c-cen c-cell" role="cell"><b>Una sola app</b> para todo.</div>
+
+        <div class="c-key" role="rowheader">Si se corta internet</div>
+        <div class="c-eco c-cell" role="cell">No puedes ver ni manejar nada a distancia y no llegan avisos. La sirena sí suena con sus sensores.</div>
+        <div class="c-cen c-cell" role="cell">La alarma y las rutinas <b>siguen funcionando</b>. Vuelves a verlas desde fuera cuando vuelve internet.</div>
+
+        <div class="c-key" role="rowheader">Escenas como «Salgo de casa»</div>
+        <div class="c-eco c-cell" role="cell">Luces y portón en una app, la alarma en la otra: dos toques.</div>
+        <div class="c-cen c-cell" role="cell">Un solo toque mueve todo: alarma, luces y portón.</div>
+
+        <div class="c-key" role="rowheader">Grabaciones</div>
+        <div class="c-eco c-cell" role="cell">En la tarjeta de memoria de cada cámara.</div>
+        <div class="c-cen c-cell" role="cell">En el equipo central, dentro de tu casa o local.</div>
+
+        <div class="c-key" role="rowheader">Precio</div>
+        <div class="c-eco c-cell" role="cell">Los precios de los planes de arriba.</div>
+        <div class="c-cen c-cell" role="cell">Los mismos planes, más <b>alrededor de $180.000</b> por el equipo central. Va detallado en la cotización.</div>
+
+        <div class="c-key" role="rowheader">Te conviene si</div>
+        <div class="c-eco c-cell" role="cell">Quieres partir con poco y sumar cosas después.</div>
+        <div class="c-cen c-cell" role="cell">Viajas seguido, tienes un local con frío o no quieres depender de internet.</div>
+      </div>
+      <p class="fine">¿No sabes cuál? En la visita vemos tu casa o local y te recomendamos una. Si partes con la económica, te decimos qué equipos te sirven si después quieres pasar a la central.</p>
+    </div>
+  </section>
+
+  <section class="block" id="como" aria-labelledby="como-t" style="padding-top: 0">
+    <div class="shell">
+      <div class="block-head"><h2 id="como-t">Cómo trabajamos</h2></div>
+      <ol class="steps">
+        <li><span class="s-ico" aria-hidden="true"><svg class="ico"><use href="#i-wa"/></svg></span><div><strong>Nos escribes</strong><p>Por WhatsApp nos cuentas qué quieres resolver. Si puedes, manda fotos.</p></div></li>
+        <li><span class="s-ico" aria-hidden="true"><svg class="ico"><use href="#i-casa"/></svg></span><div><strong>Visita sin costo</strong><p>Vamos a tu casa o local y revisamos la instalación eléctrica y el wifi.</p></div></li>
+        <li><span class="s-ico" aria-hidden="true"><svg class="ico"><use href="#i-precio"/></svg></span><div><strong>Precio cerrado</strong><p>Te mandamos la cotización con las dos líneas, para que elijas sin sorpresas.</p></div></li>
+        <li><span class="s-ico" aria-hidden="true"><svg class="ico"><use href="#i-herr"/></svg></span><div><strong>Instalación y soporte</strong><p>Instalamos, probamos contigo y dejamos la app lista en los celulares que digas.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="nosotros" aria-labelledby="nosotros-t" style="padding-top: 0">
+    <div class="shell who">
+      <div>
+        <h2 id="nosotros-t">Somos dos: uno cablea, el otro configura.</h2>
+        <p class="lede" style="margin-top: 16px">Vendemos la instalación completa funcionando, no equipos sueltos. Y si algo falla, sabes a quién escribirle.</p>
+        <ul class="who-list">
+          <li><span class="pin" style="background: var(--luz)"><svg class="ico" aria-hidden="true"><use href="#i-herr"/></svg></span><div><h3>Ingeniero en automatización</h3><p>Instalación eléctrica, tableros, sensores y control.</p></div></li>
+          <li><span class="pin" style="background: var(--noche); color: var(--luz)"><svg class="ico" aria-hidden="true"><use href="#i-app"/></svg></span><div><h3>Informático</h3><p>App, red, central local, seguridad de tus datos y soporte a distancia.</p></div></li>
+        </ul>
+      </div>
+      <div style="display: grid; gap: 0; align-content: start">
+        <div class="hours on-dark">
+          <strong>Te respondemos</strong>
+          <p>Lunes a viernes de <span class="num">18:00</span> a <span class="num">22:00</span></p>
+          <p>Sábados de <span class="num">10:00</span> a <span class="num">14:00</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="preguntas" aria-labelledby="preguntas-t" style="padding-top: 0">
+    <div class="shell">
+      <div class="block-head"><h2 id="preguntas-t">Preguntas frecuentes</h2></div>
+      <div class="faq">
+        <details><summary>¿Cuánto cuesta?</summary><p>Los planes parten en $69.990 (portón) y los packs en $349.990 (cámaras y alarma), con equipos, instalación e IVA. El precio final depende de tu casa o local y de la línea que elijas. Después de la visita te mandamos una cotización con precio cerrado, sin costo y sin compromiso.</p></details>
+        <details><summary>¿Qué pasa si se corta internet?</summary><p>Depende de la línea. En la económica no puedes ver ni manejar nada a distancia y no llegan avisos, aunque la sirena sí suena con sus sensores. En la línea con central local, la alarma y las rutinas siguen funcionando; solo dejas de verlas desde fuera hasta que vuelva internet.</p></details>
+        <details><summary>¿Hay que romper paredes o cambiar la instalación eléctrica?</summary><p>Normalmente no. Los sensores son inalámbricos y los módulos de luces van detrás de los interruptores que ya tienes, aunque necesitan cable neutro en la caja. En la visita revisamos si tu instalación necesita algún ajuste.</p></details>
+        <details><summary>¿Sirve con las cámaras o equipos que ya tengo?</summary><p>A veces sí. Revisamos la marca y el modelo, y te decimos si se pueden sumar.</p></details>
+        <details><summary>¿Quién puede ver mis cámaras?</summary><p>Solo las personas a las que tú les des acceso, y puedes quitar un acceso cuando quieras. En un negocio, te ayudamos a informar a tus trabajadores que hay cámaras.</p></details>
+        <details><summary>¿Tengo que pagar una mensualidad?</summary><p>No. La instalación se paga una vez. El soporte mensual es opcional: desde $14.990 al mes en casas y $34.990 en negocios.</p></details>
+        <details><summary>¿Llegan a mi comuna?</summary><p>Instalamos en todas las comunas de la Región Metropolitana. Los cambios y el soporte los hacemos a distancia cuando se puede.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block contact-band on-dark" id="contacto" aria-labelledby="contacto-t">
+    <div class="shell contact">
+      <div class="contact-copy">
+        <h2 id="contacto-t">Cuéntanos qué quieres ver desde tu celular.</h2>
+        <p class="lede">Completa los datos y se abre WhatsApp con el mensaje escrito. Solo tienes que enviarlo.</p>
+        <p>O escríbenos directo:<br><a class="contact-phone js-wa js-phone" href="#contacto">+56 9 0000 0000</a></p>
+      </div>
+      <form id="form" novalidate>
+        <div class="two">
+          <div class="field">
+            <label for="nombre">Tu nombre</label>
+            <input type="text" id="nombre" name="nombre" autocomplete="given-name" aria-describedby="nombre-error">
+            <span class="error" id="nombre-error" hidden>Escribe tu nombre para armar el mensaje.</span>
+          </div>
+          <div class="field">
+            <label for="sector">Comuna</label>
+            <input type="text" id="sector" name="sector" autocomplete="address-level2" placeholder="Ej.: Maipú">
+          </div>
+        </div>
+        <fieldset>
+          <legend>Es para</legend>
+          <div class="chips">
+            <label><input type="radio" name="tipo" value="mi casa" checked>Mi casa</label>
+            <label><input type="radio" name="tipo" value="mi negocio">Mi negocio</label>
+            <label><input type="radio" name="tipo" value="mi casa y mi negocio">Los dos</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Me interesa</legend>
+          <div class="chips">
+            <label><input type="checkbox" name="interes" value="cámaras">Cámaras</label>
+            <label><input type="checkbox" name="interes" value="alarma">Alarma</label>
+            <label><input type="checkbox" name="interes" value="luces y enchufes">Luces y enchufes</label>
+            <label><input type="checkbox" name="interes" value="portón y cerradura">Portón y cerradura</label>
+            <label><input type="checkbox" name="interes" value="consumo eléctrico">Consumo eléctrico</label>
+            <label><input type="checkbox" name="interes" value="alertas de frío">Alertas de frío</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Línea</legend>
+          <div class="chips">
+            <label><input type="radio" name="linea" value="" checked>Aún no sé</label>
+            <label><input type="radio" name="linea" value="la línea económica">Económica</label>
+            <label><input type="radio" name="linea" value="la línea con central local">Con central local</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="detalle">Cuéntanos más (opcional)</label>
+          <textarea id="detalle" name="detalle" placeholder="Ej.: tengo un minimarket con dos refrigeradores y quiero ver el local de noche."></textarea>
+        </div>
+        <button class="btn" type="submit"><span class="bulb"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></span>Abrir WhatsApp con mi mensaje</button>
+        <p class="form-fine">Esta página no guarda tus datos: el mensaje sale desde tu propio WhatsApp.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell">
+    <span><strong>Nodo Domótica</strong> · Cámaras, alarma y automatización para casas y negocios.</span>
+    <span>Santiago, Región Metropolitana</span>
+  </div>
+</footer>
+
+<div class="dock" id="dock"><a class="btn js-wa" href="#contacto"><span class="bulb"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></span>Cotizar por WhatsApp</a></div>
+
+<script>
+(function () {
+  // ===== Datos a editar =====
+  var WHATSAPP = "56933373581";            // número sin "+" ni espacios
+  var TELEFONO_VISIBLE = "+56 9 3337 3581";
+  var SALUDO = "Hola, vi la página de Nodo y me interesa una cotización.";
+  // ==========================
+
+  var waBase = "https://wa.me/" + WHATSAPP + "?text=";
+  document.querySelectorAll(".js-wa").forEach(function (a) {
+    a.href = waBase + encodeURIComponent(SALUDO); a.target = "_blank"; a.rel = "noopener";
+  });
+  document.querySelectorAll(".js-phone").forEach(function (a) { a.textContent = TELEFONO_VISIBLE; });
+
+  // ===== Motor isométrico =====
+  var K = 0.8660254;
+  function hex(h) { return [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)]; }
+  function dark(h, a) { var c = hex(h); return "rgb(" + c.map(function (v) { return Math.round(v * (1 - a)); }).join(",") + ")"; }
+  function Iso(S) { this.S = S; this.b = [1e9, 1e9, -1e9, -1e9]; }
+  Iso.prototype.p = function (x, y, z) {
+    var X = (x - y) * K * this.S, Y = (x + y) * 0.5 * this.S - z * this.S, b = this.b;
+    if (X < b[0]) b[0] = X; if (Y < b[1]) b[1] = Y; if (X > b[2]) b[2] = X; if (Y > b[3]) b[3] = Y;
+    return [X, Y];
+  };
+  Iso.prototype.pts = function (list) { var self = this; return list.map(function (q) { var r = self.p(q[0], q[1], q[2]); return r[0].toFixed(1) + "," + r[1].toFixed(1); }).join(" "); };
+  Iso.prototype.poly = function (list, fill, attrs) { return '<polygon points="' + this.pts(list) + '" fill="' + fill + '"' + (attrs || "") + "/>"; };
+  // Caja: caras visibles = arriba, frente izquierdo (y+d) y frente derecho (x+w)
+  Iso.prototype.box = function (x, y, z, w, d, h, col, o) {
+    o = o || {};
+    var X = x + w, Y = y + d, Z = z + h;
+    var right = this.poly([[X, y, z], [X, Y, z], [X, Y, Z], [X, y, Z]], o.right || dark(col, .1));
+    var left = this.poly([[x, Y, z], [X, Y, z], [X, Y, Z], [x, Y, Z]], o.left || dark(col, .2));
+    var top = this.poly([[x, y, Z], [X, y, Z], [X, Y, Z], [x, Y, Z]], o.top || col);
+    return "<g" + (o.attrs || "") + ">" + right + left + top + "</g>";
+  };
+  // Cara plana en el muro del fondo (y fijo) o en el muro izquierdo (x fijo)
+  Iso.prototype.wallY = function (y, x1, x2, z1, z2, fill, attrs) { return this.poly([[x1, y, z1], [x2, y, z1], [x2, y, z2], [x1, y, z2]], fill, attrs); };
+  Iso.prototype.wallX = function (x, y1, y2, z1, z2, fill, attrs) { return this.poly([[x, y1, z1], [x, y2, z1], [x, y2, z2], [x, y1, z2]], fill, attrs); };
+  Iso.prototype.floor = function (x1, y1, x2, y2, z, fill, attrs) { return this.poly([[x1, y1, z], [x2, y1, z], [x2, y2, z], [x1, y2, z]], fill, attrs); };
+  Iso.prototype.glow = function (x, y, z, r, id, grad) {
+    var c = this.p(x, y, z);
+    return '<ellipse class="glow ns" data-light="' + id + '" cx="' + c[0].toFixed(1) + '" cy="' + c[1].toFixed(1) + '" rx="' + (r * this.S * 1.22).toFixed(1) + '" ry="' + (r * this.S * 0.7).toFixed(1) + '" fill="url(#' + grad + ')"/>';
+  };
+  Iso.prototype.bulb = function (x, y, z, id) {
+    var c = this.p(x, y, z), top = this.p(x, y, 3.25);
+    return '<line class="cord" x1="' + c[0].toFixed(1) + '" y1="' + top[1].toFixed(1) + '" x2="' + c[0].toFixed(1) + '" y2="' + (c[1] - 6).toFixed(1) + '"/>' +
+      '<path class="ns" d="M' + (c[0] - 9).toFixed(1) + " " + (c[1] + 2).toFixed(1) + " Q" + c[0].toFixed(1) + " " + (c[1] - 16).toFixed(1) + " " + (c[0] + 9).toFixed(1) + " " + (c[1] + 2).toFixed(1) + 'Z" fill="#2A3040"/>' +
+      '<ellipse class="bulb-l" data-light="' + id + '" cx="' + c[0].toFixed(1) + '" cy="' + (c[1] + 3).toFixed(1) + '" rx="5" ry="3.4" stroke="#1B1F27" stroke-width="1"/>';
+  };
+  Iso.prototype.mark = function (x, y, z, id, icon) {
+    var c = this.p(x, y, z);
+    return '<g class="mk" data-dev="' + id + '" transform="translate(' + c[0].toFixed(1) + " " + c[1].toFixed(1) + ')"><circle class="halo" r="15"/><circle class="ring" r="15"/><use href="#i-' + icon + '" x="-9" y="-9" width="18" height="18" class="ico"/></g>';
+  };
+  Iso.prototype.svg = function (inner, cls, label, pad) {
+    var b = this.b, p = pad || 18;
+    var vb = (b[0] - p).toFixed(0) + " " + (b[1] - p).toFixed(0) + " " + (b[2] - b[0] + 2 * p).toFixed(0) + " " + (b[3] - b[1] + 2 * p).toFixed(0);
+    return '<svg class="iso ' + (cls || "") + '" viewBox="' + vb + '"' + (label ? ' role="img" aria-label="' + label + '"' : ' aria-hidden="true"') + ">" + inner + "</svg>";
+  };
+  var DEFS = '<defs><radialGradient id="gl"><stop offset="0" stop-color="#FFD25A" stop-opacity=".85"/><stop offset=".55" stop-color="#FFC93C" stop-opacity=".35"/><stop offset="1" stop-color="#FFC93C" stop-opacity="0"/></radialGradient>' +
+    '<radialGradient id="glc"><stop offset="0" stop-color="#DFF3FF" stop-opacity=".8"/><stop offset="1" stop-color="#DFF3FF" stop-opacity="0"/></radialGradient></defs>';
+
+  var C = { cal: "#EFE8DA", muro: "#F4EFE4", corte: "#2C3344", madera: "#C9A27A", madera2: "#A9825B", baldosa: "#D9D2C3", tierra: "#6E5B48", tela: "#7D8DA6", manta: "#C98A7A", blanco: "#FBF8F1", metal: "#C7CCD4", oscuro: "#2A3040", vidrio: "#BFD6E0", planta: "#6E8F5E" };
+
+  function casa() {
+    var I = new Iso(24), s = [], l = [], m = [];
+    s.push(I.box(-0.8, -0.8, -1.0, 13.6, 12.2, 0.5, C.tierra));
+    s.push(I.box(-0.3, -0.3, -0.35, 0.3, 7.55, 3.55, C.muro, { top: C.corte }));
+    s.push(I.box(0, -0.3, -0.35, 12, 0.3, 3.55, C.muro, { top: C.corte }));
+    s.push(I.box(0, 0, -0.35, 12, 7.25, 0.35, C.madera));
+    s.push(I.box(-0.3, 7.25, -0.5, 12.6, 3.65, 0.4, C.baldosa));
+    // ventanas y tele en el muro del fondo
+    s.push(I.wallY(0.01, 5.3, 6.9, 1.3, 2.6, C.vidrio));
+    s.push(I.wallY(0.01, 8.6, 10.2, 1.4, 2.6, C.vidrio));
+    s.push(I.wallY(0.01, 2.3, 4.6, 1.0, 2.2, C.oscuro));
+    s.push(I.wallX(0.01, 1.4, 4.4, 2.3, 2.9, C.blanco));
+    // living
+    s.push(I.floor(1.3, 2.2, 5.4, 6.0, 0.01, "#D9A58A"));
+    s.push(I.box(2.0, 0.1, 0, 2.9, 0.6, 0.55, C.madera2));
+    s.push(I.box(5.5, 0.25, 0, 0.75, 0.5, 0.9, "#E3DED3", { attrs: ' data-obj="estufa"' }));
+    s.push(I.box(0.15, 2.0, 0, 1.15, 3.6, 0.5, C.tela));
+    s.push(I.box(0.15, 2.0, 0.5, 0.4, 3.6, 0.65, C.tela));
+    s.push(I.box(0.55, 2.0, 0.5, 0.75, 0.35, 0.3, C.tela));
+    s.push(I.box(0.55, 5.25, 0.5, 0.75, 0.35, 0.3, C.tela));
+    s.push(I.box(2.7, 3.2, 0, 1.5, 1.4, 0.4, C.madera2));
+    s.push(I.box(6.0, 6.0, 0, 0.55, 0.55, 0.5, "#B87B5A"));
+    s.push(I.box(5.95, 5.95, 0.5, 0.65, 0.65, 0.55, C.planta));
+    s.push(I.box(3.25, 3.35, 2.5, 0.55, 0.55, 0.3, C.blanco, { top: "#F7F3EA" }));
+    // tabique living/dormitorio
+    s.push(I.box(6.9, 0, 0, 0.2, 4.0, 1.15, C.muro, { top: C.corte }));
+    // dormitorio
+    s.push(I.box(7.9, 0.25, 0, 2.9, 3.1, 0.45, C.madera2));
+    s.push(I.box(8.0, 0.35, 0.45, 2.7, 2.9, 0.2, C.blanco));
+    s.push(I.box(8.2, 0.45, 0.65, 2.3, 0.6, 0.18, "#FFFFFF"));
+    s.push(I.box(8.0, 1.5, 0.65, 2.7, 1.75, 0.12, C.manta));
+    s.push(I.box(11.05, 0.3, 0, 0.7, 0.7, 0.6, C.madera2));
+    s.push(I.box(10.6, 0, 2.25, 0.8, 0.3, 0.6, "#F1F1EE"));
+    // tabique dormitorio/hall
+    s.push(I.box(7.1, 3.8, 0, 2.5, 0.2, 1.15, C.muro, { top: C.corte }));
+    s.push(I.box(10.8, 3.8, 0, 1.2, 0.2, 1.15, C.muro, { top: C.corte }));
+    // hall
+    s.push(I.box(11.0, 4.5, 0, 0.8, 1.4, 0.75, C.madera2));
+    s.push(I.floor(8.9, 5.9, 10.5, 6.9, 0.01, "#8A6E57"));
+    // muro frontal y lateral cortados
+    s.push(I.box(0, 7.0, 0, 8.95, 0.25, 0.75, C.muro, { top: C.corte }));
+    s.push(I.box(10.45, 7.0, 0, 1.55, 0.25, 0.75, C.muro, { top: C.corte }));
+    s.push(I.box(12, 0, 0, 0.25, 7.25, 0.75, C.muro, { top: C.corte }));
+    // patio
+    s.push(I.box(0.1, 7.6, -0.1, 0.6, 0.6, 0.5, "#B87B5A"));
+    s.push(I.box(0.05, 7.55, 0.4, 0.7, 0.7, 0.7, C.planta));
+    s.push(I.box(1.1, 9.4, -0.1, 0.2, 0.2, 2.1, C.oscuro));
+    s.push(I.box(0.95, 9.25, 2.0, 0.5, 0.5, 0.25, C.oscuro));
+    // portón (corre hacia la izquierda, detrás del muro)
+    var gp = I.p(-3.1, 0, 0), g0 = I.p(0, 0, 0);
+    s.push('<g class="gate" data-gate style="--gx:' + (gp[0] - g0[0]).toFixed(1) + "px;--gy:" + (gp[1] - g0[1]).toFixed(1) + 'px">' +
+      I.box(8.1, 10.4, -0.1, 3.3, 0.14, 1.5, "#3A4256") +
+      [8.6, 9.2, 9.8, 10.4, 11.0].map(function (x) { return I.box(x, 10.36, 0.1, 0.08, 0.06, 1.2, "#59627A"); }).join("") + "</g>");
+    s.push(I.box(-0.3, 10.35, -0.1, 8.4, 0.3, 1.2, C.cal, { top: "#D8CFBD" }));
+    s.push(I.box(11.4, 10.3, -0.1, 0.65, 0.4, 1.75, C.cal, { top: "#D8CFBD" }));
+    s.push(I.box(12.05, 10.35, -0.1, 0.25, 0.3, 1.2, C.cal, { top: "#D8CFBD" }));
+    // noche
+    // luces (sobre la sombra)
+    l.push(I.glow(3.5, 3.6, 0, 3.0, "living", "gl"));
+    l.push(I.glow(9.4, 1.8, 0.6, 2.4, "dorm", "gl"));
+    l.push(I.glow(9.8, 5.6, 0, 2.0, "hall", "gl"));
+    l.push(I.glow(2.2, 9.0, -0.1, 3.6, "patio", "gl"));
+    l.push(I.glow(5.9, 1.1, 0, 1.4, "estufa", "gl"));
+    l.push(I.bulb(3.5, 3.6, 2.45, "living"));
+    l.push(I.bulb(9.4, 1.8, 2.55, "dorm"));
+    l.push(I.bulb(9.8, 5.6, 2.55, "hall"));
+    var pf = I.p(1.2, 9.35, 2.0);
+    l.push('<ellipse class="bulb-l" data-light="patio" cx="' + pf[0].toFixed(1) + '" cy="' + (pf[1] + 2).toFixed(1) + '" rx="6" ry="3.6" stroke="#1B1F27" stroke-width="1"/>');
+    l.push(I.poly([[5.6, 0.75, 0.15], [6.15, 0.75, 0.15], [6.15, 0.75, 0.75], [5.6, 0.75, 0.75]], "#FFB23C", ' class="face-l ns" data-light="estufa"'));
+    // intruso
+    var f = I.p(6.4, 9.1, 0);
+    l.push('<g class="show" data-show="intruso"><ellipse class="ns" cx="' + f[0].toFixed(1) + '" cy="' + (f[1]).toFixed(1) + '" rx="13" ry="6" fill="#000" opacity=".25"/>' +
+      '<path d="M' + (f[0] - 7) + " " + f[1] + " L" + (f[0] - 8) + " " + (f[1] - 26) + " Q" + f[0] + " " + (f[1] - 34) + " " + (f[0] + 8) + " " + (f[1] - 26) + " L" + (f[0] + 7) + " " + f[1] + 'Z" fill="#3A4256" stroke="#1B1F27" stroke-width="1.2"/>' +
+      '<circle cx="' + f[0] + '" cy="' + (f[1] - 38) + '" r="7.5" fill="#2A3040" stroke="#1B1F27" stroke-width="1.2"/></g>');
+    // marcadores
+    m.push(I.mark(4.95, 0, 3.0, "cam-int", "cam"));
+    m.push(I.mark(-0.15, 7.15, 3.6, "cam-ext", "cam"));
+    m.push(I.mark(0, 1.0, 2.95, "mov", "mov"));
+    m.push(I.mark(11.0, 0.15, 3.15, "sirena", "sirena"));
+    m.push(I.mark(9.7, 7.1, 1.35, "puerta", "puerta"));
+    m.push(I.mark(6.4, 0.6, 1.45, "estufa", "enchufe"));
+    m.push(I.mark(3.5, 3.6, 3.6, "luz", "luz"));
+    m.push(I.mark(1.2, 9.35, 3.0, "luz-patio", "luz"));
+    m.push(I.mark(9.8, 10.5, 2.15, "porton", "porton"));
+    return I.svg(DEFS + '<g class="struct">' + s.join("") + "</g>" + l.join("") + m.join(""), "scene", "", 14);
+  }
+
+  function negocio() {
+    var I = new Iso(24), s = [], l = [], m = [];
+    s.push(I.box(-0.8, -0.8, -1.0, 13.6, 11.4, 0.5, C.tierra));
+    s.push(I.box(-0.3, -0.3, -0.35, 0.3, 7.55, 3.55, C.muro, { top: C.corte }));
+    s.push(I.box(0, -0.3, -0.35, 12, 0.3, 3.55, C.muro, { top: C.corte }));
+    s.push(I.box(0, 0, -0.35, 12, 7.25, 0.35, "#D7D3CB"));
+    s.push(I.box(-0.3, 7.25, -0.5, 12.6, 2.85, 0.4, "#C9C3B6"));
+    // estantes en el muro del fondo
+    [0.2, 1.0, 1.8].forEach(function (z, k) {
+      s.push(I.box(0.3, 0.05, z, 4.6, 0.7, 0.12, C.madera2));
+      var cols = ["#E2483D", "#3E7CB1", "#E9B949", "#6E8F5E", "#C98A7A", "#3E7CB1", "#E9B949", "#E2483D"];
+      for (var i = 0; i < 7; i++) s.push(I.box(0.45 + i * 0.62, 0.15, z + 0.12, 0.42, 0.45, 0.48, cols[(i + k * 3) % cols.length]));
+    });
+    s.push(I.box(0.3, 0.05, 2.6, 4.6, 0.7, 0.12, C.madera2));
+    // tablero eléctrico y aire en el muro izquierdo
+    s.push(I.wallX(0.01, 4.5, 5.5, 1.1, 2.3, "#B9BEC6"));
+    s.push(I.box(0, 2.0, 2.45, 0.35, 2.2, 0.5, "#F1F1EE"));
+    // refrigeradores
+    s.push(I.box(5.6, 0.15, 0, 1.4, 1.05, 2.6, C.metal));
+    s.push(I.box(7.15, 0.15, 0, 1.4, 1.05, 2.6, C.metal));
+    // cámara de frío
+    s.push(I.wallY(0.01, 9.2, 11.4, 0, 2.7, "#AEB5BF"));
+    s.push(I.wallY(0.02, 9.4, 11.2, 0.1, 2.55, "#C9CED6"));
+    s.push(I.box(10.9, 0.02, 1.1, 0.15, 0.12, 0.5, C.oscuro));
+    // mesas
+    s.push(I.box(1.5, 3.8, 0, 1.1, 1.1, 0.75, C.madera2));
+    s.push(I.box(1.5, 5.5, 0, 1.1, 1.1, 0.75, C.madera2));
+    s.push(I.box(3.1, 4.05, 0, 0.55, 0.55, 0.45, C.oscuro));
+    s.push(I.box(3.1, 5.75, 0, 0.55, 0.55, 0.45, C.oscuro));
+    // mesón y caja
+    s.push(I.box(7.2, 4.2, 0, 3.8, 1.1, 1.0, C.madera));
+    s.push(I.box(9.6, 4.35, 1.0, 0.85, 0.7, 0.35, C.oscuro));
+    s.push(I.box(5.1, 2.9, 2.5, 0.5, 0.5, 0.3, C.blanco, { top: "#F7F3EA" }));
+    s.push(I.box(8.9, 4.5, 2.6, 0.5, 0.5, 0.3, C.blanco, { top: "#F7F3EA" }));
+    // fachada cortada y letrero
+    s.push(I.box(0, 7.0, 0, 7.6, 0.25, 0.75, C.muro, { top: C.corte }));
+    s.push(I.box(9.4, 7.0, 0, 2.6, 0.25, 0.75, C.muro, { top: C.corte }));
+    s.push(I.box(12, 0, 0, 0.25, 7.25, 0.75, C.muro, { top: C.corte }));
+    s.push(I.box(-0.5, 7.25, 2.2, 0.25, 2.2, 0.9, "#3A4256", { attrs: ' data-obj="letrero"' }));
+    // noche
+    // luces
+    l.push(I.glow(3.0, 3.0, 0, 3.6, "salon", "gl"));
+    l.push(I.glow(9.1, 4.8, 0, 2.8, "meson", "gl"));
+    l.push(I.glow(6.9, 1.9, 0, 2.2, "frio", "glc"));
+    l.push(I.bulb(5.35, 3.15, 2.45, "salon"));
+    l.push(I.bulb(9.15, 4.75, 2.55, "meson"));
+    [5.6, 7.15].forEach(function (x, k) {
+      l.push(I.poly([[x + 0.15, 1.2, 0.2], [x + 1.25, 1.2, 0.2], [x + 1.25, 1.2, 2.4], [x + 0.15, 1.2, 2.4]], k === 1 ? "#F07A6F" : "#DDF0F7", ' class="face-l ns' + (k === 1 ? '" data-light="frio2"' : '" data-light="frio"') + ' opacity=".9"'));
+      for (var j = 0; j < 4; j++) l.push(I.poly([[x + 0.2, 1.21, 0.45 + j * 0.5], [x + 1.2, 1.21, 0.45 + j * 0.5], [x + 1.2, 1.21, 0.55 + j * 0.5], [x + 0.2, 1.21, 0.55 + j * 0.5]], "#7FA3B5", ' class="ns" opacity=".55"'));
+    });
+    l.push(I.poly([[-0.25, 7.25, 2.3], [-0.25, 9.35, 2.3], [-0.25, 9.35, 3.0], [-0.25, 7.25, 3.0]], "#FFC93C", ' class="face-l ns" data-light="letrero"'));
+    var lt = I.p(-0.25, 8.3, 2.55);
+    l.push('<text class="ns" x="0" y="5" text-anchor="middle" transform="matrix(1 -0.5774 0 1 ' + lt[0].toFixed(1) + " " + lt[1].toFixed(1) + ')" style="font: 900 13px var(--display); fill: #1B1F27; letter-spacing: .04em">ABIERTO</text>');
+    var tt = I.p(7.85, 1.2, 4.75);
+    l.push('<g class="show" data-show="temp"><rect x="' + (tt[0] - 33).toFixed(1) + '" y="' + (tt[1] - 13).toFixed(1) + '" width="66" height="26" rx="13" fill="#B3261E"/><text class="tag-t" x="' + tt[0].toFixed(1) + '" y="' + (tt[1] + 5).toFixed(1) + '" text-anchor="middle">6,8 °C</text></g>');
+    // marcadores
+    m.push(I.mark(4.6, 0, 3.15, "cam-int", "cam"));
+    m.push(I.mark(-0.15, 7.15, 3.65, "cam-ext", "cam"));
+    m.push(I.mark(0, 5.0, 1.7, "energia", "energia"));
+    m.push(I.mark(0.1, 3.1, 3.4, "aire", "aire"));
+    m.push(I.mark(6.3, 1.2, 3.05, "frio1", "frio"));
+    m.push(I.mark(7.85, 1.2, 3.05, "frio2", "frio"));
+    m.push(I.mark(10.3, 0, 1.9, "puerta-frio", "puerta"));
+    m.push(I.mark(0, 0.8, 3.0, "sirena", "sirena"));
+    m.push(I.mark(5.35, 3.15, 3.55, "luz", "luz"));
+    m.push(I.mark(-0.4, 9.7, 3.55, "letrero", "letrero"));
+    m.push(I.mark(8.5, 7.1, 1.35, "puerta", "puerta"));
+    return I.svg(DEFS + '<g class="struct">' + s.join("") + "</g>" + l.join("") + m.join(""), "scene", "", 14);
+  }
+
+  // ===== Situaciones =====
+  var EX_THUMB = '<svg viewBox="0 0 200 92" aria-hidden="true"><rect width="200" height="92" fill="#2A3350"/><path d="M0 70h200v22H0z" fill="#3B4566"/><ellipse cx="60" cy="58" rx="54" ry="30" fill="#FFC93C" opacity=".3"/><path d="M112 78l-2-30q8-10 16 0l-2 30z" fill="#0F1320"/><circle cx="118" cy="40" r="7" fill="#0F1320"/><rect x="6" y="6" width="34" height="13" rx="3" fill="#E2483D"/><text x="23" y="16" text-anchor="middle" font-family="Gabarito, sans-serif" font-size="9" font-weight="800" fill="#fff">EN VIVO</text></svg>';
+  var bars = [3, 2.6, 2.5, 2.4, 2.5, 2.6, 3.4, 4.6, 5.2, 5, 4.8, 4.6, 4.9, 5.1, 4.7, 4.5, 4.6, 5, 5.3, 5.1, 4.4, 3.6, 3.3, 3.1];
+  var EX_CHART = '<svg viewBox="0 0 200 70" aria-hidden="true"><rect width="200" height="70" rx="0" fill="#F1ECE1"/>' + bars.map(function (v, i) { var h = v * 10; return '<rect x="' + (8 + i * 7.7).toFixed(1) + '" y="' + (60 - h).toFixed(1) + '" width="5" height="' + h.toFixed(1) + '" rx="1.5" fill="' + (i < 6 || i > 21 ? "#E2483D" : "#1C2333") + '"/>'; }).join("") + '<text x="8" y="68" font-family="Onest, sans-serif" font-size="6.5" fill="#4B5261">00:00</text><text x="192" y="68" text-anchor="end" font-family="Onest, sans-serif" font-size="6.5" fill="#4B5261">23:00</text></svg>';
+
+  var SCENES = {
+    casa: [
+      { id: "salgo", label: "Salgo de casa", icon: "salir", night: false, time: "09:30",
+        lights: [], states: { "cam-int": "on", "cam-ext": "on", mov: "armed", puerta: "armed", sirena: "armed", estufa: "off", luz: "off", "luz-patio": "off", porton: "idle" },
+        notif: ["Saliste de casa", "Se apagaron las luces y la estufa. La alarma quedó armada."],
+        pasa: ["Se apagan las luces y la estufa.", "Se arma la alarma: puertas y movimiento.", "Las cámaras quedan mirando."],
+        eco: "Apagas luces y estufa en eWeLink y armas la alarma en Smart Life o con el control: dos toques.",
+        cen: "Un solo toque hace todo, o pasa solo cuando cierras la puerta." },
+      { id: "llego", label: "Llego de noche", icon: "llegar", night: true, time: "21:30",
+        lights: ["patio", "living", "hall"], gate: true, states: { "cam-ext": "on", porton: "on", "luz-patio": "on", luz: "on", puerta: "idle", mov: "idle", sirena: "idle", "cam-int": "idle", estufa: "idle" },
+        notif: ["Bienvenido a casa", "Se abrió el portón, se prendió la luz del patio y se desarmó la alarma."],
+        pasa: ["Abres el portón desde el auto.", "Se prenden la luz del patio y la del living.", "Se desarma la alarma."],
+        eco: "Portón y luces en eWeLink; la alarma la desarmas con el control o en Smart Life.",
+        cen: "Al abrir el portón se prenden las luces y se desarma la alarma, solo." },
+      { id: "patio", label: "Alguien en el patio", icon: "mov", night: true, time: "03:10", alert: true,
+        lights: ["patio"], show: ["intruso"], states: { "cam-ext": "alert", sirena: "alert", "luz-patio": "on", puerta: "armed", mov: "armed", porton: "idle", luz: "off", estufa: "off", "cam-int": "on" },
+        notif: ["Movimiento en el patio", "La cámara del patio detectó a una persona. Toca para verla en vivo.", EX_THUMB],
+        pasa: ["La cámara detecta a una persona.", "Suena la sirena y se prende la luz del patio.", "Te llega el aviso con la imagen."],
+        eco: "La cámara te avisa por eWeLink y la sirena suena con sus sensores, aunque se corte internet. La luz la prendes tú desde la app.",
+        cen: "La luz de afuera se prende sola y el video queda guardado en el equipo central." },
+      { id: "dormir", label: "A dormir", icon: "luna", night: true, time: "23:15",
+        lights: [], states: { puerta: "armed", sirena: "armed", "cam-ext": "on", luz: "off", "luz-patio": "off", estufa: "off", mov: "idle", porton: "idle", "cam-int": "idle" },
+        notif: ["Buenas noches", "Luces apagadas, portón cerrado y alarma de puertas armada."],
+        pasa: ["Se apagan todas las luces y la estufa.", "Se arman los sensores de puertas, no los de adentro.", "La cámara del patio queda grabando."],
+        eco: "Las luces se apagan por horario en eWeLink; la alarma la armas en Smart Life o con el control.",
+        cen: "Una rutina hace todo a la hora que digas." }
+    ],
+    negocio: [
+      { id: "abro", label: "Abro el local", icon: "abrir", night: false, time: "08:00",
+        lights: ["salon", "meson", "letrero", "frio"], states: { luz: "on", letrero: "on", aire: "on", sirena: "idle", puerta: "idle", "cam-int": "on", "cam-ext": "on", frio1: "armed", frio2: "armed", "puerta-frio": "idle", energia: "idle" },
+        notif: ["Local abierto", "Se prendieron las luces, el letrero y el aire. Alarma desarmada."],
+        pasa: ["Se desarma la alarma al abrir.", "Se prenden luces, letrero y aire por horario.", "Los refrigeradores siguen vigilados."],
+        eco: "Los horarios corren en eWeLink; la alarma la desarmas en Smart Life o con el control.",
+        cen: "Al desarmar la alarma se prende todo, en un solo paso." },
+      { id: "cierro", label: "Cierro el local", icon: "candado", night: true, time: "22:05",
+        lights: ["frio"], states: { luz: "off", letrero: "off", aire: "off", sirena: "armed", puerta: "armed", "puerta-frio": "armed", "cam-int": "on", "cam-ext": "on", frio1: "armed", frio2: "armed", energia: "idle" },
+        notif: ["Local cerrado", "Alarma armada. Luces, letrero y aire apagados; el frío sigue funcionando."],
+        pasa: ["Se apaga todo menos los refrigeradores.", "Se arma la alarma.", "Las cámaras quedan grabando."],
+        eco: "Apagas en eWeLink y armas la alarma en Smart Life: dos toques.",
+        cen: "Un toque al bajar la cortina y queda todo listo." },
+      { id: "frio", label: "Falla el frío", icon: "frio", night: true, time: "02:40", alert: true,
+        lights: ["frio", "frio2"], show: ["temp"], states: { frio2: "alert", frio1: "armed", sirena: "armed", puerta: "armed", "puerta-frio": "armed", "cam-int": "on", "cam-ext": "on", luz: "off", letrero: "off", aire: "off", energia: "idle" },
+        notif: ["Refrigerador 2 en 6,8 °C", "Lleva 20 minutos sobre 5 °C. Revísalo antes de que se pierda la mercadería."],
+        pasa: ["El sensor nota que sube la temperatura.", "Te llega el aviso al celular, a ti y al encargado.", "Queda el historial para revisar qué pasó."],
+        eco: "El aviso llega por eWeLink. Si se corta internet, llega cuando vuelve la conexión.",
+        cen: "El aviso es igual, y la central guarda el historial aunque se corte internet." },
+      { id: "consumo", label: "Consumo de ayer", icon: "energia", night: false, time: "07:00",
+        lights: ["frio"], states: { energia: "on", frio1: "armed", frio2: "armed", luz: "idle", letrero: "idle", aire: "idle", sirena: "armed", puerta: "armed", "puerta-frio": "idle", "cam-int": "on", "cam-ext": "on" },
+        notif: ["Ayer el local gastó 48 kWh", "De noche gastaste más de lo normal: revisa qué quedó prendido.", EX_CHART],
+        pasa: ["El medidor del tablero registra el consumo hora por hora.", "Ves en qué horario se va la cuenta de luz.", "Detectas equipos que quedan prendidos de más."],
+        eco: "Lo ves en eWeLink, por hora y por día.",
+        cen: "Lo ves en la misma app de todo lo demás, con el historial en la central." }
+    ]
+  };
+
+  var stage = document.getElementById("stage");
+  var wrap = document.getElementById("scene-wrap");
+  var scenesEl = document.getElementById("scenes");
+  var notif = document.getElementById("notif");
+  var phTime = document.getElementById("ph-time");
+  var story = document.getElementById("story");
+  var noteEco = document.getElementById("note-eco");
+  var noteCen = document.getElementById("note-cen");
+  var current = { place: "casa", id: null };
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function drawPlace(place) {
+    wrap.innerHTML = place === "casa" ? casa() : negocio();
+    var svg = wrap.querySelector("svg");
+    svg.setAttribute("role", "img");
+    svg.removeAttribute("aria-hidden");
+  }
+
+  function renderButtons() {
+    scenesEl.innerHTML = "";
+    SCENES[current.place].forEach(function (sc) {
+      var b = document.createElement("button");
+      b.type = "button"; b.dataset.id = sc.id;
+      b.setAttribute("aria-pressed", "false");
+      b.innerHTML = '<span class="chip-ico" aria-hidden="true"><svg class="ico"><use href="#i-' + sc.icon + '"/></svg></span>' + sc.label;
+      b.addEventListener("click", function () { apply(sc.id, true); });
+      scenesEl.appendChild(b);
+    });
+  }
+
+  function apply(id, user) {
+    var sc = SCENES[current.place].filter(function (s) { return s.id === id; })[0] || SCENES[current.place][0];
+    current.id = sc.id;
+    var svg = wrap.querySelector("svg");
+    svg.classList.toggle("night", !!sc.night);
+    stage.classList.toggle("is-night", !!sc.night);
+    svg.setAttribute("aria-label", (current.place === "casa" ? "Casa" : "Local") + " en miniatura, situación «" + sc.label + "»: " + sc.pasa.join(" "));
+    var lights = sc.lights || [], show = sc.show || [];
+    svg.querySelectorAll("[data-light]").forEach(function (el, k) {
+      var on = lights.indexOf(el.getAttribute("data-light")) > -1;
+      el.style.transitionDelay = on && !reduce ? (0.25 + (k % 5) * 0.12) + "s" : "0s";
+      el.classList.toggle("lit", on);
+    });
+    svg.querySelectorAll("[data-show]").forEach(function (el) { el.classList.toggle("shown", show.indexOf(el.getAttribute("data-show")) > -1); });
+    var gate = svg.querySelector("[data-gate]"); if (gate) gate.classList.toggle("open", !!sc.gate);
+    svg.querySelectorAll(".mk").forEach(function (el) {
+      el.setAttribute("class", "mk " + (sc.states[el.getAttribute("data-dev")] || "idle"));
+    });
+    Array.prototype.forEach.call(scenesEl.children, function (b) { b.setAttribute("aria-pressed", b.dataset.id === sc.id ? "true" : "false"); });
+    phTime.textContent = sc.time;
+    notif.className = "notif" + (sc.alert ? " alerta" : "");
+    notif.innerHTML = '<span class="notif-app"><i aria-hidden="true"><svg class="ico"><use href="#i-' + sc.icon + '"/></svg></i>Aviso · <span class="num">' + sc.time + '</span><span class="ex">Ejemplo</span></span><strong>' + sc.notif[0] + "</strong><p>" + sc.notif[1] + "</p>" + (sc.notif[2] ? '<div class="extra">' + sc.notif[2] + "</div>" : "");
+    if (user && !reduce) { void notif.offsetWidth; notif.classList.add("swap"); }
+    story.innerHTML = sc.pasa.map(function (t) { return "<li>" + t + "</li>"; }).join("");
+    noteEco.textContent = " " + sc.eco;
+    noteCen.textContent = " " + sc.cen;
+    if (user && history.replaceState) history.replaceState(null, "", "#" + current.place + "-" + sc.id);
+  }
+
+  function setPlace(place, id) {
+    current.place = place;
+    document.querySelectorAll(".switch button").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.place === place ? "true" : "false"); });
+    drawPlace(place); renderButtons(); apply(id || SCENES[place][0].id, false);
+  }
+  document.querySelectorAll(".switch button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var first = SCENES[b.dataset.place][0].id;
+      setPlace(b.dataset.place, first);
+      if (history.replaceState) history.replaceState(null, "", "#" + b.dataset.place + "-" + first);
+    });
+  });
+  var hm = /^#(casa|negocio)-([a-z]+)$/.exec(location.hash);
+  if (hm) setPlace(hm[1], hm[2]); else setPlace("casa", "llego");
+
+  // ===== Ilustraciones de los planes =====
+  function tile(I) { return I.box(0, 0, -0.5, 5, 5, 0.5, "#E4DCCB", { top: "#EFE8DA" }); }
+  var MINI = {
+    camaras: function () { var I = new Iso(20), s = [DEFS, tile(I)];
+      s.push(I.box(0, 0, 0, 5, 0.25, 3.2, C.muro, { top: C.corte })); s.push(I.box(0, 0.25, 0, 0.25, 4.75, 3.2, C.muro, { top: C.corte }));
+      s.push(I.box(1.4, 0.25, 2.1, 1.2, 0.9, 0.7, "#F7F5F0")); s.push(I.box(1.75, 1.15, 2.25, 0.5, 0.15, 0.4, C.oscuro));
+      s.push(I.box(3.3, 3.3, 0, 0.9, 0.9, 0.5, "#F7F5F0")); s.push(I.box(3.45, 3.45, 0.5, 0.6, 0.6, 0.6, "#F7F5F0")); s.push(I.box(3.6, 4.05, 0.7, 0.3, 0.1, 0.25, C.oscuro));
+      s.push(I.mark(4.4, 1.2, 2.2, "x", "cam").replace('class="mk"', 'class="mk on"'));
+      return I.svg(s.join(""), "", "", 16); },
+    alarma: function () { var I = new Iso(20), s = [DEFS, tile(I)];
+      s.push(I.box(0, 0, 0, 5, 0.25, 3.2, C.muro, { top: C.corte })); s.push(I.box(0, 0.25, 0, 0.25, 4.75, 3.2, C.muro, { top: C.corte }));
+      s.push(I.wallY(0.26, 2.3, 4.0, 0, 2.5, C.madera2)); s.push(I.box(3.9, 0.25, 1.4, 0.2, 0.15, 0.5, "#FFFFFF"));
+      s.push(I.box(0.25, 1.4, 2.2, 0.35, 1.2, 0.8, "#F7F5F0"));
+      s.push(I.mark(2.6, 2.6, 2.0, "x", "sirena").replace('class="mk"', 'class="mk armed"'));
+      return I.svg(s.join(""), "", "", 16); },
+    luces: function () { var I = new Iso(20), s = [DEFS, tile(I)];
+      s.push(I.box(0, 0, 0, 5, 0.25, 3.2, C.muro, { top: C.corte })); s.push(I.box(0, 0.25, 0, 0.25, 4.75, 3.2, C.muro, { top: C.corte }));
+      s.push(I.wallY(0.26, 0.8, 1.6, 1.2, 1.9, "#FFFFFF")); s.push(I.wallY(0.27, 1.05, 1.35, 1.35, 1.75, "#D9D3C6"));
+      s.push(I.glow(2.8, 2.8, 0, 2.6, "x", "gl").replace('class="glow ns"', 'class="glow ns lit"'));
+      s.push(I.bulb(2.8, 2.8, 2.2, "x").replace('class="bulb-l"', 'class="bulb-l lit"'));
+      s.push(I.box(3.6, 0.6, 0, 0.7, 0.5, 0.5, "#F7F5F0")); s.push(I.box(3.78, 1.1, 0.15, 0.34, 0.06, 0.2, C.oscuro));
+      return I.svg(s.join(""), "", "", 16); },
+    porton: function () { var I = new Iso(20), s = [DEFS, tile(I)];
+      s.push(I.box(0.2, 2.2, 0, 0.5, 0.5, 2.0, C.cal, { top: "#D8CFBD" }));
+      s.push(I.box(0.7, 2.3, 0, 3.6, 0.2, 1.6, "#3A4256"));
+      [1.2, 1.8, 2.4, 3.0, 3.6].forEach(function (x) { s.push(I.box(x, 2.27, 0.15, 0.08, 0.06, 1.3, "#59627A")); });
+      s.push(I.box(4.3, 2.2, 0, 0.5, 0.5, 2.0, C.cal, { top: "#D8CFBD" }));
+      s.push(I.mark(2.5, 2.4, 2.6, "x", "porton").replace('class="mk"', 'class="mk on"'));
+      return I.svg(s.join(""), "", "", 16); },
+    negocio: function () { var I = new Iso(20), s = [DEFS, tile(I)];
+      s.push(I.box(0, 0, 0, 5, 0.25, 3.2, C.muro, { top: C.corte }));
+      s.push(I.box(0.6, 0.3, 0, 1.6, 1.2, 2.8, C.metal));
+      s.push(I.poly([[0.75, 1.5, 0.2], [2.05, 1.5, 0.2], [2.05, 1.5, 2.6], [0.75, 1.5, 2.6]], "#DDF0F7"));
+      s.push(I.box(2.5, 0.3, 0, 1.6, 1.2, 2.8, C.metal));
+      s.push(I.poly([[2.65, 1.5, 0.2], [3.95, 1.5, 0.2], [3.95, 1.5, 2.6], [2.65, 1.5, 2.6]], "#DDF0F7"));
+      s.push(I.box(3.2, 3.4, 0, 1.2, 0.8, 0.9, "#B9BEC6"));
+      s.push(I.mark(1.4, 1.5, 3.4, "x", "frio").replace('class="mk"', 'class="mk armed"'));
+      s.push(I.mark(3.8, 3.8, 1.9, "x", "energia").replace('class="mk"', 'class="mk on"'));
+      return I.svg(s.join(""), "", "", 16); }
+  };
+  var PLANS = [
+    { k: "camaras", name: "Cámaras", for: "Casa o negocio", price: "209.990", text: "Ves tu casa o tu local en vivo desde el celular y revisas lo grabado.", items: ["1 cámara interior que gira 360°", "1 cámara exterior para patio o entrada", "Grabación en tarjeta de memoria", "Aviso con imagen si detecta a alguien"] },
+    { k: "alarma", name: "Alarma", for: "Casa o negocio", price: "159.990", text: "Sirena con sensores que te avisa al celular si se abre algo.", items: ["Sirena de 110 dB con batería", "2 sensores de puerta o ventana", "2 sensores de movimiento", "Control para armar y desarmar"] },
+    { k: "luces", name: "Luces y enchufes", for: "Casa o negocio", price: "179.990", text: "Prendes y apagas desde el celular o por horario, sin cambiar tus interruptores.", items: ["3 circuitos de luz", "2 enchufes inteligentes", "Horarios y rutinas"] },
+    { k: "porton", name: "Portón", for: "Casa", price: "69.990", text: "Abres el portón desde el celular, incluso para dejar pasar a alguien si no estás.", items: ["Se conecta a tu motor de portón", "Abres desde el auto o el trabajo"] },
+    { k: "negocio", name: "Energía y frío", for: "Negocio", price: "289.990", text: "Te avisa si falla un refrigerador y te muestra en qué se va la cuenta de luz.", items: ["Medidor de consumo del local", "Temperatura en 2 equipos de frío", "Sensor de puerta de cámara de frío", "2 horarios: letrero y luces"] }
+  ];
+  document.getElementById("plans").innerHTML = PLANS.map(function (p) {
+    return '<article class="plan"><div class="plan-pic">' + MINI[p.k]() + '</div><div class="plan-name"><h3>' + p.name + '</h3><span class="plan-for">' + p.for + "</span></div><p>" + p.text + "</p><ul>" + p.items.map(function (i) { return "<li>" + i + "</li>"; }).join("") + '</ul><p class="price"><span>Desde</span><strong>$' + p.price + "</strong></p></article>";
+  }).join("");
+
+  // ===== Ilustraciones de las dos líneas =====
+  function house(I, wallCol, roofCol) {
+    var s = [I.box(0, 0, -0.4, 5, 5, 0.4, "#E4DCCB", { top: "#EFE8DA" })];
+    s.push(I.box(0.8, 0.8, 0, 3.4, 3.4, 2.0, wallCol));
+    s.push(I.poly([[0.6, 0.6, 2.0], [4.4, 0.6, 2.0], [4.4, 2.5, 3.3], [0.6, 2.5, 3.3]], dark(roofCol, 0)));
+    s.push(I.poly([[4.4, 0.6, 2.0], [4.4, 4.4, 2.0], [4.4, 2.5, 3.3]], dark(roofCol, .12)));
+    s.push(I.poly([[0.6, 2.5, 3.3], [4.4, 2.5, 3.3], [4.4, 4.4, 2.0], [0.6, 4.4, 2.0]], dark(roofCol, .22)));
+    s.push(I.poly([[1.6, 4.21, 0], [2.4, 4.21, 0], [2.4, 4.21, 1.3], [1.6, 4.21, 1.3]], C.madera2));
+    s.push(I.poly([[4.21, 1.6, 0.8], [4.21, 2.6, 0.8], [4.21, 2.6, 1.6], [4.21, 1.6, 1.6]], "#FFD777"));
+    return s;
+  }
+  (function () {
+    var I = new Iso(14), s = house(I, "#F4EFE4", "#C9A27A");
+    s.push(I.mark(-0.4, 5.6, 2.0, "x", "app").replace('class="mk"', 'class="mk on"'));
+    s.push(I.mark(5.6, -0.4, 2.0, "x", "app").replace('class="mk"', 'class="mk on"'));
+    document.getElementById("pic-eco").innerHTML = I.svg(s.join(""), "", "", 18);
+    var J = new Iso(14), t = house(J, "#3A4256", "#283149");
+    t.push(J.box(4.6, 3.6, 0, 0.9, 0.9, 0.6, "#FFFDF8"));
+    t.push(J.mark(5.05, 4.05, 1.7, "x", "app").replace('class="mk"', 'class="mk on"'));
+    document.getElementById("pic-cen").innerHTML = J.svg(t.join(""), "", "", 18);
+  })();
+
+  // Ocultar la barra fija cuando ya hay un botón de WhatsApp a la vista
+  var dock = document.getElementById("dock");
+  if ("IntersectionObserver" in window) {
+    var visibles = new Set();
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) visibles.add(e.target); else visibles.delete(e.target); });
+      dock.classList.toggle("hide", visibles.size > 0);
+    }, { threshold: 0.1 });
+    io.observe(document.querySelector(".hero-actions"));
+    io.observe(document.getElementById("contacto"));
+  }
+
+  // ===== Formulario: arma el mensaje y abre WhatsApp =====
+  var form = document.getElementById("form");
+  var nombre = document.getElementById("nombre");
+  var err = document.getElementById("nombre-error");
+  nombre.addEventListener("input", function () { err.hidden = true; nombre.removeAttribute("aria-invalid"); });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var n = nombre.value.trim();
+    if (!n) { err.hidden = false; nombre.setAttribute("aria-invalid", "true"); nombre.focus(); return; }
+    var sector = form.sector.value.trim();
+    var tipo = form.querySelector('input[name="tipo"]:checked').value;
+    var linea = form.querySelector('input[name="linea"]:checked').value;
+    var intereses = Array.prototype.map.call(form.querySelectorAll('input[name="interes"]:checked'), function (c) { return c.value; });
+    var detalle = form.detalle.value.trim();
+    var msg = "Hola, soy " + n + (sector ? ", de " + sector : "") + ". Quiero una cotización de Nodo para " + tipo + ".";
+    if (intereses.length) msg += "\nMe interesa: " + intereses.join(", ") + ".";
+    msg += linea ? "\nMe tinca " + linea + "." : "\nTodavía no sé qué línea me conviene.";
+    if (detalle) msg += "\n" + detalle;
+    window.open(waBase + encodeURIComponent(msg), "_blank", "noopener");
+  });
+})();
+</script>
+</body>
+</html>
