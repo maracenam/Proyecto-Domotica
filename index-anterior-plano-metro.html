@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nodo Domótica | Cámaras, alarma y luces en tu celular, en Santiago</title>
+<meta name="description" content="Instalamos cámaras, alarma, luces, portón y medición de consumo para casas y negocios en Santiago. Dos líneas de servicio, visita y cotización sin costo.">
+<meta property="og:title" content="Nodo Domótica: tu casa y tu negocio a la vista desde el celular">
+<meta property="og:description" content="Cámaras, alarma, luces y portón para casas y negocios en Santiago. Visita y cotización sin costo.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta name="theme-color" content="#F4F2EC">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23121417'/%3E%3Cpath d='M3 22 10 15' stroke='%23E8501E' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M22 15 29 8' stroke='%230B7A5A' stroke-width='4' stroke-linecap='round'/%3E%3Crect x='8' y='11' width='16' height='10' rx='5' fill='%23F4F2EC'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Overpass:wght@500;700;800;900&display=swap">
+<style>
+:root {
+  --enamel: #F4F2EC;
+  --board: #FFFFFF;
+  --ink: #121417;
+  --ink-2: #4A4F57;
+  --rule: #D6D2C6;
+  --eco: #E8501E;
+  --eco-deep: #B83A0E;
+  --cen: #0B7A5A;
+  --cen-ink: #E6F4EE;
+  --pro: #2A5CAA;
+  --night: #121417;
+  --night-2: #1E2228;
+  --night-ink: #C9CDD3;
+  --display: "Overpass", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --line: 10px;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 76px; scrollbar-color: var(--ink) var(--enamel); }
+body { margin: 0; background: var(--enamel); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; caret-color: var(--eco); }
+::selection { background: var(--ink); color: var(--enamel); }
+h1, h2, h3 { font-family: var(--display); margin: 0; line-height: 1.02; text-wrap: balance; letter-spacing: -0.025em; font-weight: 900; }
+h1 { font-size: clamp(2.6rem, 6.4vw, 5.25rem); }
+h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); }
+h3 { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; }
+p { margin: 0; }
+a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 2px; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+svg { display: block; }
+:focus-visible { outline: 3px solid var(--pro); outline-offset: 3px; border-radius: 4px; }
+.on-dark :focus-visible { outline-color: #FFFFFF; }
+.shell { width: min(1200px, 100%); margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+.lede { font-size: clamp(1.1rem, 1.6vw, 1.25rem); color: var(--ink-2); max-width: 54ch; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: var(--enamel); padding: 10px 16px; border-radius: 999px; z-index: 60; font-weight: 700; }
+.skip:focus { left: 12px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ico { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* Estación terminal (botón principal) */
+.terminus { display: inline-flex; align-items: center; gap: 12px; min-height: 56px; padding: 8px 26px 8px 8px; border-radius: 999px; background: var(--ink); color: var(--enamel); font: 800 1.08rem/1.1 var(--display); letter-spacing: -0.005em; text-decoration: none; border: 0; cursor: pointer; transition: transform .25s var(--ease), box-shadow .25s var(--ease); box-shadow: 0 2px 0 rgba(18,20,23,.08), 0 10px 24px -12px rgba(18,20,23,.55); }
+.terminus .knob { width: 40px; height: 40px; border-radius: 50%; background: var(--enamel); color: var(--ink); display: grid; place-items: center; flex: none; }
+.terminus:hover { transform: translateY(-2px); box-shadow: 0 2px 0 rgba(18,20,23,.08), 0 16px 30px -14px rgba(18,20,23,.6); }
+.terminus:active { transform: translateY(0); }
+.terminus.light { background: var(--enamel); color: var(--ink); }
+.terminus.light .knob { background: var(--ink); color: var(--enamel); }
+.textlink { font-weight: 700; color: var(--ink); }
+
+/* Cabecera */
+.top { position: sticky; top: 0; z-index: 30; background: rgba(244, 242, 236, .94); border-bottom: 2px solid var(--ink); }
+@supports (backdrop-filter: blur(1px)) { .top { background: rgba(244, 242, 236, .82); backdrop-filter: saturate(1.2) blur(12px); } }
+.top .shell { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 64px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 900 1.45rem var(--display); letter-spacing: -0.03em; }
+.brand svg { width: 46px; height: 24px; }
+.top nav ol { display: flex; align-items: center; gap: 0; }
+.top nav li { display: flex; align-items: center; }
+.top nav li + li::before { content: ""; width: 22px; height: 4px; background: var(--ink); opacity: .9; }
+.top nav a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: 700 .95rem var(--display); padding: 8px 10px; border-radius: 999px; }
+.top nav a::before { content: ""; width: 12px; height: 12px; border-radius: 50%; border: 3px solid var(--ink); background: var(--board); }
+.top nav a:hover { background: var(--board); }
+.top .terminus { min-height: 44px; padding: 4px 18px 4px 4px; font-size: .98rem; box-shadow: none; }
+.top .terminus .knob { width: 34px; height: 34px; }
+@media (max-width: 980px) { .top nav { display: none; } }
+
+/* Portada con el plano */
+.hero { padding-block: clamp(28px, 5vw, 64px) clamp(48px, 6vw, 88px); }
+.hero-copy { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(20px, 4vw, 56px); align-items: end; margin-bottom: clamp(28px, 4vw, 48px); }
+.hero-copy h1 { max-width: 13ch; }
+.hero-side { display: grid; gap: 14px; padding-bottom: 8px; }
+.hero-fine { font-size: .98rem; color: var(--ink-2); display: flex; gap: 10px; align-items: center; }
+.hero-fine .ico { width: 20px; height: 20px; color: var(--cen); }
+@media (max-width: 880px) { .hero-copy { grid-template-columns: minmax(0, 1fr); align-items: start; } }
+
+.route { --dot: 48px; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "origin origin" "stations terminus" "panel panel"; column-gap: 0; row-gap: 22px; position: relative; }
+.origin { grid-area: origin; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.origin-label { font: 800 .82rem var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.origin-switch { display: inline-flex; background: var(--board); border: 3px solid var(--ink); border-radius: 999px; padding: 4px; gap: 4px; }
+.origin-switch button { display: inline-flex; align-items: center; gap: 8px; border: 0; background: transparent; color: var(--ink); font: 800 1rem var(--display); min-height: 44px; padding: 6px 18px 6px 12px; border-radius: 999px; cursor: pointer; transition: background .3s var(--ease), color .3s var(--ease); }
+.origin-switch button:hover { background: var(--enamel); }
+.origin-switch button[aria-pressed="true"] { background: var(--ink); color: var(--enamel); }
+.track { grid-row: 2; grid-column: 1 / -1; align-self: start; height: var(--line); margin-top: calc(var(--dot) / 2 - var(--line) / 2); background: rgba(18, 20, 23, .12); border-radius: 999px; position: relative; pointer-events: none; }
+.track::after { content: ""; position: absolute; inset: 0; background: var(--ink); border-radius: inherit; clip-path: inset(0 0 0 0); transition: clip-path 1.1s var(--ease); }
+.route.drawing .track::after { clip-path: inset(0 100% 0 0); transition: none; }
+.stations { grid-area: stations; display: flex; justify-content: space-between; gap: 6px; position: relative; padding-right: clamp(10px, 3vw, 36px); }
+.station { appearance: none; border: 0; background: none; padding: 0; color: var(--ink-2); display: grid; justify-items: center; gap: 10px; cursor: pointer; font: 800 1rem/1.15 var(--display); text-align: center; min-width: 0; flex: 1 1 0; align-content: start; }
+.station .dot { width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--board); border: 4px solid #8D9097; color: var(--ink-2); display: grid; place-items: center; transition: transform .35s var(--ease), background .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease); }
+.station .name { max-width: 12ch; }
+.station:hover .dot { border-color: var(--ink); color: var(--ink); transform: scale(1.06); }
+.station:hover { color: var(--ink); }
+.station[aria-selected="true"] { color: var(--ink); }
+.station[aria-selected="true"] .dot { background: var(--ink); border-color: var(--ink); color: var(--enamel); transform: scale(1.12); }
+.route .terminus { grid-area: terminus; align-self: start; margin-top: calc(var(--dot) / 2 - 28px); position: relative; z-index: 1; }
+.panel { grid-area: panel; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); background: var(--board); border: 3px solid var(--ink); border-radius: 10px; overflow: hidden; }
+.board { background: var(--ink); color: #FFFFFF; padding: clamp(20px, 3vw, 32px); display: grid; align-content: start; gap: 10px; }
+.board-top { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.board-tag { font: 800 .8rem var(--display); letter-spacing: .06em; text-transform: uppercase; color: var(--night-ink); border: 2px solid #5A5F68; border-radius: 999px; padding: 3px 10px 1px; }
+.board-time { font: 900 clamp(2.4rem, 5vw, 3.6rem)/1 var(--display); color: #FF7A4A; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; }
+.board-title { font: 800 1.35rem/1.15 var(--display); }
+.board p:last-child { color: var(--night-ink); }
+.info { padding: clamp(20px, 3vw, 32px); display: grid; gap: 14px; align-content: start; }
+.info h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
+.info > p { color: var(--ink-2); max-width: 52ch; }
+.ticks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 22px; }
+.ticks li { position: relative; padding-left: 22px; }
+.ticks li::before { content: ""; position: absolute; left: 0; top: .42em; width: 12px; height: 12px; border-radius: 50%; border: 3px solid var(--ink); }
+.panel-foot { font-size: .92rem; color: var(--ink-2); }
+.panel.swap > * { animation: panel-in .5s var(--ease); }
+@keyframes panel-in { from { opacity: .35; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 760px) {
+  .route { --dot: 44px; grid-template-columns: minmax(0, 1fr); grid-template-areas: "origin" "stations" "panel" "terminus"; row-gap: 18px; }
+  .track { grid-row: 2 / 5; grid-column: 1; width: var(--line); height: auto; margin-top: calc(var(--dot) / 2); margin-bottom: 28px; margin-left: calc(var(--dot) / 2 - var(--line) / 2); align-self: stretch; }
+  .track::after { transition: clip-path 1.1s var(--ease); }
+  .route.drawing .track::after { clip-path: inset(0 0 100% 0); }
+  .stations { flex-direction: column; gap: 10px; padding-right: 0; }
+  .station { grid-template-columns: var(--dot) minmax(0, 1fr); justify-items: start; align-items: center; text-align: left; gap: 14px; font-size: 1.08rem; }
+  .station .name { max-width: none; }
+  .panel { grid-template-columns: minmax(0, 1fr); margin-left: calc(var(--dot) + 14px); }
+  .ticks { grid-template-columns: minmax(0, 1fr); }
+  .route .terminus { margin-top: 0; justify-self: start; width: 100%; }
+}
+
+/* Secciones */
+.block { padding-block: clamp(64px, 9vw, 120px); }
+.block-head { display: grid; gap: 16px; margin-bottom: clamp(32px, 5vw, 56px); max-width: 800px; }
+
+/* Dos líneas */
+.trunk { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 0; }
+.trunk::before { content: ""; position: absolute; left: 22px; right: 0; top: 17px; height: var(--line); background: var(--pro); border-radius: 999px; }
+.trunk li { position: relative; display: grid; gap: 12px; align-content: start; padding-right: 8px; }
+.tdot { width: 44px; height: 44px; border-radius: 50%; background: var(--board); border: 5px solid var(--pro); color: var(--pro); display: grid; place-items: center; position: relative; top: -4px; }
+.tdot .ico { width: 20px; height: 20px; stroke-width: 2.2; }
+.trunk strong { font: 800 1.12rem/1.2 var(--display); display: block; }
+.trunk p { color: var(--ink-2); font-size: .98rem; }
+.fork { display: block; width: 100%; height: 104px; overflow: visible; }
+.fork path { fill: none; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+.lines { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(12px, 2vw, 20px); }
+.lines > * { --pad: clamp(20px, 3vw, 36px); --disc: 44px; padding-inline: var(--pad); }
+.lines .eco { grid-column: 1; background: var(--eco); color: var(--ink); }
+.lines .cen { grid-column: 2; background: var(--cen); color: #FFFFFF; }
+.r1 { grid-row: 1; } .r2 { grid-row: 2; } .r3 { grid-row: 3; } .r4 { grid-row: 4; } .r5 { grid-row: 5; } .r6 { grid-row: 6; }
+.line-head { position: relative; padding-top: clamp(24px, 3vw, 36px); padding-bottom: 20px; border-radius: 10px 10px 0 0; display: grid; gap: 12px; justify-items: start; }
+.line-head h3 b { width: var(--disc); height: var(--disc); border-radius: 50%; display: grid; place-items: center; font-size: 1.15rem; flex: none; position: relative; }
+.eco.line-head h3 b { background: var(--ink); color: var(--eco); }
+.cen.line-head h3 b { background: #FFFFFF; color: var(--cen); }
+.claim { font: 800 clamp(1.15rem, 2vw, 1.45rem)/1.2 var(--display); max-width: 30ch; }
+.line-head::before { content: ""; position: absolute; left: calc(var(--pad) + 17px); top: 0; height: clamp(24px, 3vw, 36px); width: var(--line); }
+.eco.line-head::before { background: var(--ink); }
+.cen.line-head::before { background: #FFFFFF; }
+.line-head + .stop::before, .stop::before { top: 0; }
+.eco.r2::before, .cen.r2::before { top: -20px; }
+.line-head h3 { display: flex; align-items: center; gap: 12px; font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 900; }
+.line-head p { font-size: 1.05rem; max-width: 36ch; }
+.stop { position: relative; padding-top: 18px; padding-bottom: 18px; padding-left: calc(var(--pad) + 56px); }
+.stop::before { content: ""; position: absolute; left: calc(var(--pad) + 17px); top: 0; bottom: 0; width: var(--line); }
+.stop::after { content: ""; position: absolute; left: calc(var(--pad) + 8px); top: 22px; width: 28px; height: 28px; border-radius: 50%; border: 6px solid; }
+.eco.stop::before { background: var(--ink); }
+.eco.stop::after { background: var(--eco); border-color: var(--ink); }
+.cen.stop::before { background: #FFFFFF; }
+.cen.stop::after { background: var(--cen); border-color: #FFFFFF; }
+.stop .k { font: 800 .8rem var(--display); letter-spacing: .1em; text-transform: uppercase; display: block; margin-bottom: 2px; }
+.eco .k { color: var(--ink); }
+.cen .k { color: var(--cen-ink); }
+.stop p { font-size: 1.05rem; max-width: 40ch; }
+.stop.last { padding-bottom: clamp(28px, 3vw, 40px); border-radius: 0 0 10px 10px; }
+.stop.last::before { bottom: auto; height: 32px; }
+.lines-note { margin-top: 22px; color: var(--ink-2); max-width: 70ch; }
+@media (max-width: 860px) {
+  .trunk { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .trunk::before { left: 17px; right: auto; top: 22px; bottom: -2px; width: var(--line); height: auto; }
+  .trunk li { grid-template-columns: 44px minmax(0, 1fr); gap: 14px; align-items: start; }
+  .tdot { top: 0; }
+  .fork { height: 76px; }
+  .lines { gap: 0 8px; }
+  .lines > * { --pad: 12px; --disc: 34px; }
+  .line-head { gap: 8px; padding-top: 24px; }
+  .line-head h3 { font-size: 1.08rem; gap: 8px; line-height: 1.1; }
+  .line-head h3 b { font-size: .95rem; }
+  .line-head p { font-size: .92rem; }
+  .claim { font-size: 1rem; }
+  .line-head::before { width: 8px; left: calc(var(--pad) + 13px); height: 24px; }
+  .stop { padding: 14px 10px 14px calc(var(--pad) + 22px); }
+  .stop::before { width: 6px; left: calc(var(--pad) + 3px); }
+  .stop::after { left: var(--pad); top: 18px; width: 18px; height: 18px; border-width: 4px; }
+  .stop .k { font-size: .7rem; letter-spacing: .06em; }
+  .stop p { font-size: .94rem; line-height: 1.45; }
+}
+
+/* Un día */
+.night { background: var(--night); color: #FFFFFF; }
+.night .lede { color: var(--night-ink); }
+.day { display: grid; position: relative; }
+.day::before { content: ""; position: absolute; left: 39px; top: 30px; bottom: 30px; width: var(--line); background: var(--pro); border-radius: 999px; }
+.day-row { display: grid; grid-template-columns: 88px minmax(0, 1fr) minmax(0, 1fr); gap: clamp(16px, 3vw, 44px); padding-block: 20px; align-items: start; position: relative; }
+.day-head { padding-block: 0 8px; font: 800 .82rem var(--display); letter-spacing: .1em; text-transform: uppercase; color: var(--night-ink); }
+.day-head span:first-child { visibility: hidden; }
+.hour { justify-self: start; display: inline-grid; place-items: center; min-width: 88px; min-height: 40px; padding: 4px 10px; border-radius: 999px; background: var(--enamel); color: var(--ink); font: 900 1.15rem var(--display); font-variant-numeric: tabular-nums; position: relative; z-index: 1; }
+.hour.late { background: #FF7A4A; }
+.day-row p { color: var(--night-ink); }
+.day-row strong { color: #FFFFFF; display: block; font: 800 1.12rem/1.3 var(--display); margin-bottom: 2px; }
+.place .ico { display: none; }
+@media (max-width: 760px) {
+  .day-head { display: none; }
+  .day-row { grid-template-columns: minmax(0, 1fr); gap: 12px; padding-left: 0; }
+  .day-row p { padding-left: 100px; }
+  .day::before { left: 39px; }
+  .hour { position: absolute; top: 20px; left: 0; }
+  .day-row p:first-of-type { padding-top: 6px; }
+  .place .ico { display: inline-block; width: 20px; height: 20px; margin: 0 8px -3px 0; color: #FF7A4A; }
+}
+
+/* Quiénes */
+.who { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 88px); align-items: center; }
+.cross { width: 100%; height: auto; max-width: 520px; justify-self: center; }
+.cross text { font-family: var(--display); }
+.who-list { display: grid; gap: 22px; margin-top: 28px; }
+.who-list li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 14px; }
+.who-list .pin { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; color: #FFFFFF; }
+.who-list p { color: var(--ink-2); }
+.hours { margin-top: 28px; padding-top: 20px; border-top: 2px solid var(--ink); display: grid; gap: 4px; }
+.hours strong { font: 800 1.05rem var(--display); }
+.hours p { font-family: var(--display); font-weight: 500; }
+.pilot { margin-top: clamp(48px, 7vw, 80px); display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 18px 28px; align-items: center; padding: clamp(22px, 3vw, 32px); border: 3px dashed var(--ink); border-radius: 10px; }
+.pilot-dot { width: 64px; height: 64px; border-radius: 50%; border: 6px dashed var(--ink); display: grid; place-items: center; }
+.pilot-dot .ico { width: 28px; height: 28px; }
+.pilot h3 { font-size: clamp(1.3rem, 2.4vw, 1.7rem); margin-bottom: 6px; }
+.pilot p { color: var(--ink-2); max-width: 70ch; }
+@media (max-width: 860px) { .who { grid-template-columns: minmax(0, 1fr); } .cross { max-width: 420px; justify-self: start; } }
+@media (max-width: 520px) { .pilot { grid-template-columns: minmax(0, 1fr); } }
+
+/* Preguntas */
+.faq { max-width: 860px; }
+.faq details { border-bottom: 2px solid var(--rule); }
+.faq details:first-child { border-top: 2px solid var(--ink); }
+.faq summary { cursor: pointer; list-style: none; display: grid; grid-template-columns: 28px minmax(0, 1fr) 24px; gap: 14px; align-items: center; padding-block: 20px; font: 800 1.18rem/1.3 var(--display); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::before { content: ""; width: 22px; height: 22px; border-radius: 50%; border: 5px solid var(--ink); background: var(--board); transition: background .25s var(--ease); }
+.faq details[open] summary::before { background: var(--ink); }
+.faq summary::after { content: ""; width: 12px; height: 12px; border-right: 3px solid var(--ink); border-bottom: 3px solid var(--ink); transform: rotate(45deg) translate(-3px, -3px); transition: transform .3s var(--ease); justify-self: center; }
+.faq details[open] summary::after { transform: rotate(-135deg) translate(-3px, -3px); }
+.faq summary:hover { color: var(--ink-2); }
+.faq details p { color: var(--ink-2); padding: 0 0 22px 42px; max-width: 68ch; }
+
+/* Contacto */
+.contact-band { background: var(--board); border-top: 2px solid var(--ink); }
+.contact { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
+.contact-copy { display: grid; gap: 20px; }
+.contact-phone { font: 900 clamp(1.5rem, 3vw, 2rem) var(--display); text-decoration: none; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.contact-phone:hover { text-decoration: underline; }
+form { background: var(--enamel); border: 3px solid var(--ink); border-radius: 10px; padding: clamp(20px, 3vw, 32px); display: grid; gap: 22px; }
+.field { display: grid; gap: 6px; }
+.field label, legend { font: 800 1rem var(--display); padding: 0; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 560px) { .two { grid-template-columns: 1fr; } }
+input[type="text"], textarea { font: inherit; color: var(--ink); background: var(--board); border: 2px solid #8D9097; border-radius: 8px; padding: 12px 14px; width: 100%; min-height: 52px; transition: border-color .2s var(--ease); }
+input::placeholder, textarea::placeholder { color: #6B6F76; }
+textarea { min-height: 104px; resize: vertical; }
+input[type="text"]:hover, textarea:hover { border-color: var(--ink); }
+input[type="text"]:focus, textarea:focus { outline: 3px solid var(--pro); outline-offset: 1px; border-color: var(--ink); }
+input[aria-invalid="true"] { border-color: #B3261E; }
+.error { color: #B3261E; font-size: .95rem; font-weight: 700; }
+fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips label { position: relative; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 6px 16px 6px 10px; border: 2px solid #8D9097; border-radius: 999px; cursor: pointer; font-weight: 700; user-select: none; background: var(--board); transition: border-color .2s var(--ease), background .2s var(--ease); }
+.chips label::before { content: ""; width: 14px; height: 14px; border-radius: 50%; border: 3px solid #8D9097; background: var(--board); flex: none; }
+.chips label:hover { border-color: var(--ink); }
+.chips input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.chips label:has(input:checked) { border-color: var(--ink); background: var(--ink); color: var(--enamel); }
+.chips label:has(input:checked)::before { border-color: var(--enamel); background: var(--enamel); }
+.chips label.c-eco:has(input:checked) { background: var(--eco); color: var(--ink); }
+.chips label.c-eco:has(input:checked)::before { border-color: var(--ink); background: var(--ink); }
+.chips label.c-cen:has(input:checked) { background: var(--cen); border-color: var(--cen); color: #FFFFFF; }
+.chips label:has(input:focus-visible) { outline: 3px solid var(--pro); outline-offset: 3px; }
+form .terminus { justify-self: start; }
+.form-fine { color: var(--ink-2); font-size: .94rem; }
+@media (max-width: 860px) { .contact { grid-template-columns: minmax(0, 1fr); } form .terminus { width: 100%; } }
+
+footer { background: var(--ink); color: var(--night-ink); }
+footer .shell { padding-block: 36px 112px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px 28px; font-size: .96rem; }
+footer strong { color: #FFFFFF; font-family: var(--display); font-weight: 900; }
+@media (min-width: 761px) { footer .shell { padding-block: 36px; } }
+
+/* Barra fija en celular */
+.dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(244, 242, 236, .96); border-top: 2px solid var(--ink); display: none; transform: translateY(0); transition: transform .35s var(--ease); }
+.dock.hide { transform: translateY(110%); }
+.dock .terminus { width: 100%; box-shadow: none; }
+@media (max-width: 760px) { .dock { display: block; } .top .terminus { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0s !important; animation: none !important; }
+  .route.drawing .track::after { clip-path: inset(0 0 0 0); }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cam" viewBox="0 0 24 24"><rect x="3" y="7" width="13" height="10" rx="2.5"/><path d="m16 11 5-2.5v7L16 13"/><circle cx="8" cy="12" r="1.6"/></symbol>
+  <symbol id="i-alarm" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.9 7.5-9.5V6z"/><path d="m8.8 12 2.3 2.3 4.2-4.6"/></symbol>
+  <symbol id="i-luz" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.2h5c0-.9.4-1.7 1.1-2.2A6 6 0 0 0 12 3z"/></symbol>
+  <symbol id="i-porton" viewBox="0 0 24 24"><path d="M3 21V5M21 21V5M3 8h18M7 8v13M11 8v13M15 8v13M19 8v13"/></symbol>
+  <symbol id="i-energia" viewBox="0 0 24 24"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z"/></symbol>
+  <symbol id="i-frio" viewBox="0 0 24 24"><path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0z"/><path d="M12 11v6"/></symbol>
+  <symbol id="i-letrero" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="10" rx="2"/><path d="M8 15v5M16 15v5M7 10h10"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.4-1.1A8.5 8.5 0 1 0 12 3.5z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01" stroke-width="2.6"/></symbol>
+  <symbol id="i-casa" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="i-local" viewBox="0 0 24 24"><path d="M4 9.5 5.5 4h13L20 9.5"/><path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5.5 12v8h13v-8M10 20v-4.5h4V20"/></symbol>
+  <symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.3 2.7 2.7L16.2 9.5"/></symbol>
+  <symbol id="i-herr" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0-5.3 5L3.5 17.2l3.3 3.3 5.7-5.7a4 4 0 0 0 5-5.3l-2.6 2.6-2.4-.6-.6-2.4z"/></symbol>
+  <symbol id="i-app" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></symbol>
+  <symbol id="i-obra" viewBox="0 0 24 24"><path d="M4 20h16M6 20V10l6-5 6 5v10"/><path d="M10 20v-6h4v6"/></symbol>
+</svg>
+
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="top">
+  <div class="shell">
+    <a class="brand" href="#inicio" aria-label="Nodo Domótica, inicio">
+      <svg viewBox="0 0 46 24" aria-hidden="true"><path d="M2 20 10 12" stroke="#E8501E" stroke-width="5" stroke-linecap="round"/><path d="M36 12 44 4" stroke="#0B7A5A" stroke-width="5" stroke-linecap="round"/><rect x="8" y="5" width="30" height="14" rx="7" fill="#FFFFFF" stroke="#121417" stroke-width="4"/></svg>
+      Nodo
+    </a>
+    <nav aria-label="Secciones">
+      <ol>
+        <li><a href="#inicio">Qué instalamos</a></li>
+        <li><a href="#lineas">Las dos líneas</a></li>
+        <li><a href="#dia">Un día</a></li>
+        <li><a href="#preguntas">Preguntas</a></li>
+      </ol>
+    </nav>
+    <a class="terminus js-wa" href="#contacto"><span class="knob"><svg class="ico"><use href="#i-wa"/></svg></span>Cotizar por WhatsApp</a>
+  </div>
+</header>
+
+<main id="contenido">
+  <section class="hero" id="inicio" aria-labelledby="titulo">
+    <div class="shell">
+      <div class="hero-copy">
+        <h1 id="titulo">Tu casa y tu negocio, a la vista desde el celular.</h1>
+        <div class="hero-side">
+          <p class="lede">Instalamos cámaras, alarma, luces y portón, y te dejamos todo funcionando en tu celular. Recorre la línea para ver qué hace cada cosa.</p>
+          <p class="hero-fine"><svg class="ico" aria-hidden="true"><use href="#i-ok"/></svg>Visita y cotización sin costo, en toda la Región Metropolitana.</p>
+        </div>
+      </div>
+
+      <div class="route" id="route">
+        <div class="origin">
+          <span class="origin-label" id="origin-label">Partir desde</span>
+          <div class="origin-switch" role="group" aria-labelledby="origin-label">
+            <button type="button" data-plan="casa" aria-pressed="true"><svg class="ico" aria-hidden="true"><use href="#i-casa"/></svg>Mi casa</button>
+            <button type="button" data-plan="negocio" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-local"/></svg>Mi negocio</button>
+          </div>
+        </div>
+        <div class="track" aria-hidden="true"></div>
+        <div class="stations" role="tablist" aria-label="Qué instalamos" id="stations"></div>
+        <a class="terminus js-wa" href="#contacto"><span class="knob"><svg class="ico"><use href="#i-wa"/></svg></span>Escríbenos por WhatsApp</a>
+        <div class="panel" role="tabpanel" id="panel" tabindex="0" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="lineas" aria-labelledby="lineas-t" style="background: var(--board); border-block: 2px solid var(--ink);">
+    <div class="shell">
+      <div class="block-head">
+        <h2 id="lineas-t">Dos líneas. Tú eliges hasta dónde llegar.</h2>
+        <p class="lede">Las dos parten igual: nos escribes, vamos a verte y te dejamos un precio cerrado. Lo que cambia es cómo funciona todo después de la instalación.</p>
+      </div>
+
+      <ol class="trunk" aria-label="Cómo trabajamos">
+        <li><span class="tdot" aria-hidden="true"><svg class="ico"><use href="#i-wa"/></svg></span><div><strong>Nos escribes</strong><p>Por WhatsApp nos cuentas qué quieres resolver. Si puedes, manda fotos.</p></div></li>
+        <li><span class="tdot" aria-hidden="true"><svg class="ico"><use href="#i-casa"/></svg></span><div><strong>Visita sin costo</strong><p>Vamos a tu casa o local y revisamos la instalación.</p></div></li>
+        <li><span class="tdot" aria-hidden="true"><svg class="ico"><use href="#i-ok"/></svg></span><div><strong>Precio cerrado</strong><p>Te mandamos la cotización con las dos líneas, para que elijas.</p></div></li>
+        <li><span class="tdot" aria-hidden="true"><svg class="ico"><use href="#i-herr"/></svg></span><div><strong>Instalación</strong><p>Instalamos, probamos contigo y dejamos la app lista en los celulares que digas.</p></div></li>
+      </ol>
+
+      <svg class="fork" id="fork" aria-hidden="true"><path id="fork-eco" style="stroke: var(--eco)"/><path id="fork-cen" style="stroke: var(--cen)"/></svg>
+
+      <div class="lines">
+        <div class="eco line-head r1">
+          <h3><b>E</b>Línea económica</h3>
+          <p class="claim">Lo esencial, al menor costo.</p>
+          <p>Equipos de consumo masivo, bien instalados y configurados por nosotros.</p>
+        </div>
+        <div class="eco stop r2"><span class="k">Apps</span><p>Usas dos apps: eWeLink y Smart Life.</p></div>
+        <div class="eco stop r3"><span class="k">Si se corta internet</span><p>Las funciones a distancia dependen de internet: se pausan hasta que vuelva la conexión.</p></div>
+        <div class="eco stop r4"><span class="k">Equipo extra</span><p>No necesita. Todo funciona con los equipos que instalamos.</p></div>
+        <div class="eco stop r5"><span class="k">Soporte</span><p>Soporte a distancia mensual, opcional.</p></div>
+        <div class="eco stop last r6"><span class="k">Te conviene si</span><p>Quieres partir con poco y sumar cosas después.</p></div>
+
+        <div class="cen line-head r1">
+          <h3><b>C</b>Línea con central local</h3>
+          <p class="claim">Todo en un lugar, aunque se corte internet.</p>
+          <p>Sumamos un pequeño equipo central que queda instalado en tu casa o local.</p>
+        </div>
+        <div class="cen stop r2"><span class="k">Apps</span><p>Una sola app para cámaras, alarma, luces y todo lo demás.</p></div>
+        <div class="cen stop r3"><span class="k">Si se corta internet</span><p>La alarma y las rutinas siguen funcionando. Solo dejas de verlas desde fuera hasta que vuelva.</p></div>
+        <div class="cen stop r4"><span class="k">Equipo extra</span><p>El equipo central, con las grabaciones guardadas ahí mismo. Su costo va aparte en la cotización.</p></div>
+        <div class="cen stop r5"><span class="k">Soporte</span><p>Soporte a distancia mensual, opcional.</p></div>
+        <div class="cen stop last r6"><span class="k">Te conviene si</span><p>Viajas seguido, tienes un local con frío o no quieres depender de internet.</p></div>
+      </div>
+      <p class="lines-note">¿No sabes cuál? En la visita te mostramos las dos con tu casa o local en mente, y puedes partir con la económica y pasar a la central después.</p>
+    </div>
+  </section>
+
+  <section class="block night on-dark" id="dia" aria-labelledby="dia-t">
+    <div class="shell">
+      <div class="block-head">
+        <h2 id="dia-t">Un día con el sistema funcionando</h2>
+        <p class="lede">Ejemplos de lo que hace solo, sin que tengas que acordarte.</p>
+      </div>
+      <div class="day">
+        <div class="day-row day-head" aria-hidden="true"><span>Hora</span><span>En casa</span><span>En el negocio</span></div>
+        <div class="day-row">
+          <span class="hour">07:00</span>
+          <p><strong><span class="place"><svg class="ico" aria-hidden="true"><use href="#i-casa"/></svg><span class="sr">En casa: </span></span>Se enciende la estufa del living</strong>Cuando te levantas, la casa ya está temperada.</p>
+          <p><strong><span class="place"><svg class="ico" aria-hidden="true"><use href="#i-local"/></svg><span class="sr">En el negocio: </span></span>Ves el consumo de ayer</strong>Cuánto gastó el local y qué equipo consumió más.</p>
+        </div>
+        <div class="day-row">
+          <span class="hour">09:30</span>
+          <p><strong><span class="place"><svg class="ico" aria-hidden="true"><use href="#i-casa"/></svg><span class="sr">En casa: </span></span>Tocas «Salgo de casa»</strong>Se apagan las luces y la estufa, y se arma la alarma.</p>
+          <p><strong><span class="place"><svg class="ico" aria-hidden="true"><use href="#i-local"/></svg><span class="sr">En el negocio: </span></span>Abres y se desarma la alarma</strong>Se prenden las luces, el letrero y el aire.</p>
+        </div>
+        <div class="day-row">
+          <span class="hour">13:15</span>
+          <p><strong><span class="place"><svg class="ico" aria-hidden="true"><use href="#i-casa"/></svg><span class="sr">En casa: </span></span>Aviso: movimiento en la entrada</strong>Abres la cámara, es el repartidor. Le abres el portón desde el trabajo.</p>
+          <p><strong><span class="place"><svg class="ico" aria-hidden="true"><use href="#i-local"/></svg><span class="sr">En el negocio: </span></span>Miras el local desde tu casa</strong>Ves las cámaras en vivo mientras almuerzas.</p>
+        </div>
+        <div class="day-row">
+          <span class="hour">21:30</span>
+          <p><strong><span class="place"><svg class="ico" aria-hidden="true"><use href="#i-casa"/></svg><span class="sr">En casa: </span></span>Llegas y se prende la luz del patio</strong>Abres el portón desde el auto y se desarma la alarma.</p>
+          <p><strong><span class="place"><svg class="ico" aria-hidden="true"><use href="#i-local"/></svg><span class="sr">En el negocio: </span></span>Cierras con un toque</strong>Se apaga todo menos el frío, y las cámaras quedan grabando.</p>
+        </div>
+        <div class="day-row">
+          <span class="hour late">03:10</span>
+          <p><strong><span class="place"><svg class="ico" aria-hidden="true"><use href="#i-casa"/></svg><span class="sr">En casa: </span></span>Movimiento en el patio</strong>Se prenden las luces de afuera, suena la sirena y te llega el aviso con la imagen.</p>
+          <p><strong><span class="place"><svg class="ico" aria-hidden="true"><use href="#i-local"/></svg><span class="sr">En el negocio: </span></span>La cámara de frío marca 6,8&nbsp;°C</strong>Te avisa al celular a tiempo para salvar la mercadería.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="quienes" aria-labelledby="quienes-t">
+    <div class="shell">
+      <div class="who">
+        <div>
+          <h2 id="quienes-t">Nodo es donde se cruzan dos oficios.</h2>
+          <ul class="who-list">
+            <li><span class="pin" style="background: var(--ink)"><svg class="ico" aria-hidden="true"><use href="#i-herr"/></svg></span><div><h3>Ingeniero en automatización</h3><p>Se encarga de la instalación eléctrica, los sensores, el control y los tableros.</p></div></li>
+            <li><span class="pin" style="background: var(--pro)"><svg class="ico" aria-hidden="true"><use href="#i-app"/></svg></span><div><h3>Informático</h3><p>Se encarga de la app, la red, la seguridad de tus datos y el soporte a distancia.</p></div></li>
+          </ul>
+          <div class="hours">
+            <strong>Te respondemos</strong>
+            <p>Lunes a viernes de 18:00 a 22:00 y sábados de 10:00 a 14:00.</p>
+          </div>
+        </div>
+        <svg class="cross" viewBox="0 -10 460 384" role="img" aria-label="Dos líneas, electricidad e informática, que se cruzan en una estación llamada Nodo">
+          <path d="M20 300 L150 300 L210 240 L210 120 L270 60 L440 60" fill="none" stroke="#121417" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 60 L150 60 L210 120 L210 240 L270 300 L440 300" fill="none" stroke="#2A5CAA" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="60" cy="300" r="13" fill="#FFFFFF" stroke="#121417" stroke-width="6"/>
+          <circle cx="400" cy="60" r="13" fill="#FFFFFF" stroke="#121417" stroke-width="6"/>
+          <circle cx="60" cy="60" r="13" fill="#FFFFFF" stroke="#2A5CAA" stroke-width="6"/>
+          <circle cx="400" cy="300" r="13" fill="#FFFFFF" stroke="#2A5CAA" stroke-width="6"/>
+          <rect x="160" y="128" width="100" height="104" rx="50" fill="#FFFFFF" stroke="#121417" stroke-width="8"/>
+          <text x="210" y="188" text-anchor="middle" font-size="26" font-weight="900" fill="#121417">Nodo</text>
+          <text x="60" y="350" text-anchor="middle" font-size="23" font-weight="800" fill="#121417">Tableros</text>
+          <text x="400" y="28" text-anchor="middle" font-size="23" font-weight="800" fill="#121417">Sensores</text>
+          <text x="60" y="28" text-anchor="middle" font-size="23" font-weight="800" fill="#2A5CAA">Red</text>
+          <text x="400" y="350" text-anchor="middle" font-size="23" font-weight="800" fill="#2A5CAA">Soporte</text>
+        </svg>
+      </div>
+
+      <div class="pilot">
+        <span class="pilot-dot" aria-hidden="true"><svg class="ico"><use href="#i-obra"/></svg></span>
+        <div>
+          <h3>Próxima estación: la primera instalación</h3>
+          <p>Estamos haciendo la instalación piloto en la casa de uno de nosotros. Cuando esté lista, aquí vas a ver fotos y cómo funciona de verdad. Preferimos mostrarte eso antes que inventar testimonios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="preguntas" aria-labelledby="preguntas-t" style="padding-top: 0">
+    <div class="shell">
+      <div class="block-head"><h2 id="preguntas-t">Preguntas frecuentes</h2></div>
+      <div class="faq">
+        <details><summary>¿Cuánto cuesta?</summary><p>Depende de cuántas cámaras, sensores y equipos quieras conectar, y de la línea que elijas. Después de la visita te enviamos una cotización con precio cerrado, sin costo y sin compromiso.</p></details>
+        <details><summary>¿Qué pasa si se corta internet?</summary><p>Depende de la línea. En la económica, las funciones a distancia se pausan hasta que vuelva la conexión. En la línea con central local, la alarma y las rutinas siguen funcionando; solo dejas de verlas desde fuera.</p></details>
+        <details><summary>¿Hay que romper paredes o cambiar la instalación eléctrica?</summary><p>Normalmente no. Muchos sensores son inalámbricos y los módulos de luces van detrás de los interruptores que ya tienes. En la visita revisamos si tu instalación necesita algún ajuste.</p></details>
+        <details><summary>¿Sirve con las cámaras o equipos que ya tengo?</summary><p>Muchas veces sí. Revisamos la marca y el modelo, y te decimos si se pueden sumar.</p></details>
+        <details><summary>¿Quién puede ver mis cámaras?</summary><p>Solo las personas a las que tú les des acceso, y puedes quitar un acceso cuando quieras.</p></details>
+        <details><summary>¿Tengo que pagar una mensualidad?</summary><p>No es obligatorio. La instalación se paga una vez. El soporte mensual es opcional e incluye revisiones a distancia y ajustes de rutinas.</p></details>
+        <details><summary>¿Llegan a mi comuna?</summary><p>Instalamos en todas las comunas de la Región Metropolitana. Los cambios y el soporte los hacemos a distancia cuando se puede.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block contact-band" id="contacto" aria-labelledby="contacto-t">
+    <div class="shell contact">
+      <div class="contact-copy">
+        <h2 id="contacto-t">Estación terminal: tu cotización.</h2>
+        <p class="lede">Completa los datos y se abre WhatsApp con el mensaje escrito. Solo tienes que enviarlo.</p>
+        <p>O escríbenos directo:<br><a class="contact-phone js-wa js-phone" href="#contacto">+56 9 0000 0000</a></p>
+      </div>
+      <form id="form" novalidate>
+        <div class="two">
+          <div class="field">
+            <label for="nombre">Tu nombre</label>
+            <input type="text" id="nombre" name="nombre" autocomplete="given-name" aria-describedby="nombre-error">
+            <span class="error" id="nombre-error" hidden>Escribe tu nombre para armar el mensaje.</span>
+          </div>
+          <div class="field">
+            <label for="sector">Comuna</label>
+            <input type="text" id="sector" name="sector" autocomplete="address-level2" placeholder="Ej.: Maipú">
+          </div>
+        </div>
+        <fieldset>
+          <legend>Es para</legend>
+          <div class="chips">
+            <label><input type="radio" name="tipo" value="mi casa" checked>Mi casa</label>
+            <label><input type="radio" name="tipo" value="mi negocio">Mi negocio</label>
+            <label><input type="radio" name="tipo" value="mi casa y mi negocio">Los dos</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Me interesa</legend>
+          <div class="chips">
+            <label><input type="checkbox" name="interes" value="cámaras">Cámaras</label>
+            <label><input type="checkbox" name="interes" value="alarma">Alarma</label>
+            <label><input type="checkbox" name="interes" value="luces y enchufes">Luces y enchufes</label>
+            <label><input type="checkbox" name="interes" value="portón y cerradura">Portón y cerradura</label>
+            <label><input type="checkbox" name="interes" value="consumo eléctrico">Consumo eléctrico</label>
+            <label><input type="checkbox" name="interes" value="alertas de frío">Alertas de frío</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Línea</legend>
+          <div class="chips">
+            <label><input type="radio" name="linea" value="" checked>Aún no sé</label>
+            <label class="c-eco"><input type="radio" name="linea" value="la línea económica">Económica</label>
+            <label class="c-cen"><input type="radio" name="linea" value="la línea con central local">Con central local</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="detalle">Cuéntanos más (opcional)</label>
+          <textarea id="detalle" name="detalle" placeholder="Ej.: tengo un minimarket con dos refrigeradores y quiero ver el local de noche."></textarea>
+        </div>
+        <button class="terminus" type="submit"><span class="knob"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></span>Abrir WhatsApp con mi mensaje</button>
+        <p class="form-fine">Esta página no guarda tus datos: el mensaje sale desde tu propio WhatsApp.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell">
+    <span><strong>Nodo Domótica</strong> · Cámaras, alarma y automatización para casas y negocios.</span>
+    <span>Santiago, Región Metropolitana</span>
+  </div>
+</footer>
+
+<div class="dock" id="dock"><a class="terminus js-wa" href="#contacto"><span class="knob"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></span>Escríbenos por WhatsApp</a></div>
+
+<script>
+(function () {
+  // ===== Datos a editar =====
+  var WHATSAPP = "56900000000";            // número sin "+" ni espacios
+  var TELEFONO_VISIBLE = "+56 9 0000 0000";
+  var SALUDO = "Hola, vi la página de Nodo y me interesa una cotización.";
+  // ==========================
+
+  var waBase = "https://wa.me/" + WHATSAPP + "?text=";
+  document.querySelectorAll(".js-wa").forEach(function (a) {
+    a.href = waBase + encodeURIComponent(SALUDO); a.target = "_blank"; a.rel = "noopener";
+  });
+  var pendiente = WHATSAPP === "56900000000";
+  document.querySelectorAll(".js-phone").forEach(function (a) { a.textContent = pendiente ? TELEFONO_VISIBLE + " (número por confirmar)" : TELEFONO_VISIBLE; });
+
+  // ----- El plano -----
+  var PLANS = {
+    casa: [
+      { id: "camaras", name: "Cámaras", icon: "cam",
+        aviso: ["13:15", "Movimiento en la entrada", "Abres la cámara desde el trabajo: es el repartidor."],
+        lead: "Ves tu casa en vivo desde el celular y revisas lo grabado cuando quieras.",
+        items: ["Interior y exterior", "Visión nocturna", "Aviso con imagen si alguien entra", "Acceso solo para quien tú elijas"] },
+      { id: "alarma", name: "Alarma", icon: "alarm",
+        aviso: ["03:10", "Se abrió la ventana del living", "Suena la sirena, se prenden las luces y te llega el aviso."],
+        lead: "Sensores en puertas, ventanas y pasillos. La armas con un toque al salir, o se arma sola por horario.",
+        items: ["Sensores de apertura y movimiento", "Sirena", "Detector de humo", "Aviso a varios celulares"] },
+      { id: "luces", name: "Luces y enchufes", icon: "luz",
+        aviso: ["09:30", "Saliste de casa", "Se apagaron las luces, la estufa y el televisor."],
+        lead: "Conectamos lo que ya tienes. Lo manejas desde el celular o se maneja solo por horario.",
+        items: ["Sin cambiar tus interruptores", "Enchufes que se apagan a distancia", "Rutinas: «Salgo», «A dormir»", "Horarios por día"] },
+      { id: "porton", name: "Portón y cerradura", icon: "porton",
+        aviso: ["21:30", "Portón abierto desde el auto", "Se prende la luz del patio y se desarma la alarma."],
+        lead: "Abres el portón desde el celular y le abres a una visita aunque no estés.",
+        items: ["Portón desde el celular", "Cerradura con clave", "Claves temporales para visitas", "Registro de entradas"] }
+    ],
+    negocio: [
+      { id: "camaras", name: "Cámaras", icon: "cam",
+        aviso: ["23:40", "Movimiento en el local cerrado", "Te llega el aviso con la imagen de la cámara de la caja."],
+        lead: "Miras el local en vivo desde tu casa y revisas lo grabado cuando quieras.",
+        items: ["Caja, bodega y acceso", "Visión nocturna", "Aviso fuera de horario", "Acceso para el encargado"] },
+      { id: "alarma", name: "Alarma", icon: "alarm",
+        aviso: ["22:05", "Local cerrado y alarma armada", "La armaste con un toque al bajar la cortina."],
+        lead: "Se arma cuando cierras y se desarma cuando abres. Si se activa, avisa a quienes tú digas.",
+        items: ["Sensores de apertura y movimiento", "Sirena", "Detector de humo", "Aviso al dueño y al encargado"] },
+      { id: "letrero", name: "Luces y letrero", icon: "letrero",
+        aviso: ["08:00", "Local abierto", "Se prendieron las luces, el letrero y el aire."],
+        lead: "Luces, letrero y aire se prenden y apagan solos según el horario del local.",
+        items: ["Horario de apertura y cierre", "Letrero por horario", "Apagas todo desde el celular", "Sin cambiar interruptores"] },
+      { id: "energia", name: "Consumo eléctrico", icon: "energia",
+        aviso: ["07:00", "Consumo de ayer: listo para revisar", "Ves qué equipo gastó más y a qué hora."],
+        lead: "Un medidor en el tablero te muestra en qué se va la cuenta de luz, hora por hora.",
+        items: ["Consumo por hora y por día", "Qué equipo consume más", "Consumo fuera de horario", "Lo ves en el celular"] },
+      { id: "frio", name: "Cadena de frío", icon: "frio",
+        aviso: ["02:40", "Cámara de frío en 6,8 °C", "Te avisa a tiempo para salvar la mercadería."],
+        lead: "Sensores en refrigeradores y cámaras de frío avisan si sube la temperatura.",
+        items: ["Alerta de temperatura", "Aviso de puerta abierta", "Historial de temperatura", "Aviso al dueño y al encargado"] }
+    ]
+  };
+
+  var route = document.getElementById("route");
+  var stationsEl = document.getElementById("stations");
+  var panel = document.getElementById("panel");
+  var current = { plan: "casa", i: 0 };
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function draw() {
+    if (reduce) return;
+    route.classList.add("drawing");
+    void route.offsetWidth;
+    requestAnimationFrame(function () { route.classList.remove("drawing"); });
+  }
+
+  function renderStations() {
+    stationsEl.innerHTML = "";
+    PLANS[current.plan].forEach(function (s, i) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "station"; b.setAttribute("role", "tab");
+      b.id = "est-" + current.plan + "-" + s.id;
+      b.setAttribute("aria-controls", "panel");
+      b.innerHTML = '<span class="dot"><svg class="ico" aria-hidden="true"><use href="#i-' + s.icon + '"/></svg></span><span class="name">' + s.name + "</span>";
+      b.addEventListener("click", function () { select(i, true); });
+      b.addEventListener("keydown", function (e) {
+        var n = PLANS[current.plan].length, k = e.key, j = null;
+        if (k === "ArrowRight" || k === "ArrowDown") j = (i + 1) % n;
+        if (k === "ArrowLeft" || k === "ArrowUp") j = (i - 1 + n) % n;
+        if (k === "Home") j = 0;
+        if (k === "End") j = n - 1;
+        if (j !== null) { e.preventDefault(); select(j, true); stationsEl.children[j].focus(); }
+      });
+      stationsEl.appendChild(b);
+    });
+  }
+
+  function select(i, user) {
+    current.i = i;
+    var s = PLANS[current.plan][i];
+    Array.prototype.forEach.call(stationsEl.children, function (b, n) {
+      b.setAttribute("aria-selected", n === i ? "true" : "false");
+      b.tabIndex = n === i ? 0 : -1;
+    });
+    panel.setAttribute("aria-labelledby", "est-" + current.plan + "-" + s.id);
+    panel.innerHTML =
+      '<div class="board"><div class="board-top"><span class="board-time">' + s.aviso[0] + '</span><span class="board-tag">Ejemplo</span></div>' +
+      '<p class="board-title">' + s.aviso[1] + '</p><p>' + s.aviso[2] + '</p></div>' +
+      '<div class="info"><h3>' + s.name + '</h3><p>' + s.lead + '</p><ul class="ticks">' +
+      s.items.map(function (t) { return "<li>" + t + "</li>"; }).join("") + "</ul>" +
+      '<p class="panel-foot">Puedes partir solo con esto y sumar el resto después.</p></div>';
+    if (user && !reduce) { panel.classList.remove("swap"); void panel.offsetWidth; panel.classList.add("swap"); }
+    if (user && history.replaceState) history.replaceState(null, "", "#" + current.plan + "-" + s.id);
+  }
+
+  function setPlan(plan, i) {
+    current.plan = plan;
+    document.querySelectorAll(".origin-switch button").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-plan") === plan ? "true" : "false");
+    });
+    renderStations(); select(i || 0, false); draw();
+  }
+
+  document.querySelectorAll(".origin-switch button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      setPlan(b.getAttribute("data-plan"), 0);
+      if (history.replaceState) history.replaceState(null, "", "#" + current.plan + "-" + PLANS[current.plan][0].id);
+    });
+  });
+
+  // Abrir una estación desde un enlace compartido (#casa-porton, #negocio-frio)
+  var m = /^#(casa|negocio)-([a-z]+)$/.exec(location.hash);
+  if (m) {
+    var idx = PLANS[m[1]].findIndex(function (s) { return s.id === m[2]; });
+    setPlan(m[1], idx < 0 ? 0 : idx);
+  } else {
+    setPlan("casa", 0);
+  }
+
+  // ----- Desvío: el tronco se separa en las dos líneas, medido sobre la página real -----
+  var fork = document.getElementById("fork");
+  function drawFork() {
+    if (!fork || getComputedStyle(fork).display === "none") return;
+    var box = fork.getBoundingClientRect(), W = box.width, H = box.height;
+    var mobile = window.matchMedia("(max-width: 860px)").matches;
+    var x0 = mobile ? 22 : W - 5, ys = mobile ? [10, 30] : [18, 44];
+    var targets = [document.querySelector(".eco.line-head h3 b"), document.querySelector(".cen.line-head h3 b")];
+    ["fork-eco", "fork-cen"].forEach(function (id, k) {
+      var r = targets[k].getBoundingClientRect(), x = r.left + r.width / 2 - box.left, y = ys[k];
+      var d, sgn = x < x0 ? -1 : 1, j = mobile ? 14 : 22;
+      if (Math.abs(x - x0) < 2 * j) d = "M" + x0 + " -2 V" + y + " L" + x + " " + (y + Math.abs(x - x0)) + " V" + (H + 40);
+      else d = "M" + x0 + " -2 V" + (y - j) + " L" + (x0 + j * sgn) + " " + y + " H" + (x - j * sgn) + " L" + x + " " + (y + j) + " V" + (H + 40);
+      document.getElementById(id).setAttribute("d", d);
+    });
+    fork.setAttribute("viewBox", "0 0 " + W + " " + H);
+  }
+  drawFork();
+  window.addEventListener("resize", drawFork);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawFork);
+
+  // Ocultar la barra fija cuando ya hay un botón de WhatsApp a la vista (el de la línea o el formulario)
+  var dock = document.getElementById("dock");
+  if ("IntersectionObserver" in window) {
+    var visibles = new Set();
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) visibles.add(e.target); else visibles.delete(e.target); });
+      dock.classList.toggle("hide", visibles.size > 0);
+    }, { threshold: 0.1 });
+    io.observe(route.querySelector(".terminus"));
+    io.observe(document.getElementById("contacto"));
+  }
+
+  // ----- Formulario: arma el mensaje y abre WhatsApp -----
+  var form = document.getElementById("form");
+  var nombre = document.getElementById("nombre");
+  var err = document.getElementById("nombre-error");
+  nombre.addEventListener("input", function () { err.hidden = true; nombre.removeAttribute("aria-invalid"); });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var n = nombre.value.trim();
+    if (!n) { err.hidden = false; nombre.setAttribute("aria-invalid", "true"); nombre.focus(); return; }
+    var sector = form.sector.value.trim();
+    var tipo = form.querySelector('input[name="tipo"]:checked').value;
+    var linea = form.querySelector('input[name="linea"]:checked').value;
+    var intereses = Array.prototype.map.call(form.querySelectorAll('input[name="interes"]:checked'), function (c) { return c.value; });
+    var detalle = form.detalle.value.trim();
+    var msg = "Hola, soy " + n + (sector ? ", de " + sector : "") + ". Quiero una cotización de Nodo para " + tipo + ".";
+    if (intereses.length) msg += "\nMe interesa: " + intereses.join(", ") + ".";
+    msg += linea ? "\nMe tinca " + linea + "." : "\nTodavía no sé qué línea me conviene.";
+    if (detalle) msg += "\n" + detalle;
+    window.open(waBase + encodeURIComponent(msg), "_blank", "noopener");
+  });
+})();
+</script>
+</body>
+</html>
