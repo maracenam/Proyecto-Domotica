@@ -51,3 +51,34 @@ Somos dos vecinos: un ingeniero en automatización y un informático. Visita y c
 
 Mira cómo funciona 👉 https://nodo-domotica.vercel.app
 O escríbeme por WhatsApp: +56 9 3337 3581 👇
+
+==================================================
+VERSIÓN 3: precio fundador (primeros 5 clientes)
+Imagen: redes/post-facebook-fundador.png
+Ojo: actualiza el número de cupos en el texto y en la página (CUPOS_FUNDADOR) cada vez que cierres un cliente.
+==================================================
+
+Hola vecinos 👋
+
+Somos dos vecinos de [COMUNA], un ingeniero en automatización y un informático, y estamos partiendo con Nodo: instalamos domótica para casas y negocios.
+
+Queremos partir con clientes que nos ayuden a mostrar el trabajo, así que los primeros 5 tienen precio fundador:
+
+⭐ 10% de descuento en la instalación
+⭐ Primer mes de soporte gratis
+🙏 A cambio, nos dejas sacar fotos de la instalación (sin tu dirección ni tu cara) y, si quedaste conforme, una reseña en Google
+
+¿Qué instalamos?
+📷 Cámaras que ves en vivo desde el celular
+🚨 Alarma con sensores en puertas, ventanas y patio
+💡 Luces y enchufes que prendes y apagas a distancia o por horario
+🚪 Portón que abres desde el auto o el trabajo
+🧊 Para negocios: aviso si falla un refrigerador y cuánto gasta tu local en luz
+
+Planes desde $89.990 y cámaras + alarma desde $399.990 (con el precio fundador, $359.991), con equipos, instalación e IVA. La visita y la cotización no tienen costo.
+
+Mira cómo funciona 👉 https://nodo-domotica.vercel.app
+
+Escríbenos por WhatsApp al +56 9 3337 3581 y dinos "quiero un cupo" 🙌
+
+(El 10% aplica a los packs y a los planes de cámaras, alarma, luces y energía y frío. Quedan 5 cupos.)
