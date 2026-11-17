@@ -236,6 +236,18 @@ svg { display: block; }
 .support b { font-family: var(--display); font-weight: 900; font-variant-numeric: tabular-nums; }
 .support p { color: var(--tinta-2); font-size: .97rem; }
 .fine { color: var(--tinta-2); font-size: .95rem; margin-top: 20px; max-width: 80ch; }
+.founder { margin-bottom: clamp(36px, 5vw, 56px); background: var(--luz); color: var(--tinta); border-radius: 28px; padding: clamp(22px, 3.6vw, 40px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(20px, 4vw, 48px); align-items: center; }
+.founder .tag { display: inline-flex; align-items: center; gap: 8px; font: 800 .9rem var(--display); background: var(--tinta); color: var(--luz); border-radius: 999px; padding: 6px 14px; }
+.founder h3 { font-size: clamp(1.5rem, 2.8vw, 2.1rem); margin-top: 14px; }
+.founder p { margin-top: 10px; max-width: 54ch; }
+.founder ul { display: grid; gap: 8px; margin-top: 14px; }
+.founder li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 8px; align-items: start; font-size: .98rem; }
+.founder li .ico { margin-top: 3px; }
+.founder-cta { display: grid; gap: 12px; justify-items: start; }
+.founder-cta .small { font-size: .9rem; color: var(--tinta-2); }
+.hero-founder { display: inline-flex; align-items: center; gap: 8px; font: 700 .95rem var(--display); color: var(--tinta); background: var(--luz); border-radius: 999px; padding: 6px 14px; text-decoration: none; width: fit-content; }
+.hero-founder:hover { filter: brightness(1.04); }
+@media (max-width: 860px) { .founder { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 980px) {
   .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .plan, .plan:nth-child(4), .plan:nth-child(5) { grid-column: span 1; }
@@ -422,6 +434,7 @@ footer strong { color: #FFFFFF; font-family: var(--display); font-weight: 900; }
           <a class="btn ghost" href="#planes">Ver planes y precios</a>
         </div>
         <p class="hero-fine"><svg class="ico" aria-hidden="true"><use href="#i-ok"/></svg>Visita y cotización sin costo, en toda la Región Metropolitana.</p>
+        <a class="hero-founder js-founder" href="#fundador">Precio fundador: <span class="js-cupos-txt">quedan 5 cupos</span> con 10% de descuento</a>
       </div>
 
       <div class="demo">
@@ -462,6 +475,22 @@ footer strong { color: #FFFFFF; font-family: var(--display); font-weight: 900; }
       <div class="block-head">
         <h2 id="planes-t">Arma tu instalación por partes.</h2>
         <p class="lede">Puedes partir con un plan y sumar otro después. Los precios incluyen equipos, instalación e IVA, en la línea económica. Te confirmamos el valor final después de la visita, según tu casa o local.</p>
+      </div>
+      <div class="founder js-founder" id="fundador" aria-labelledby="fundador-t">
+        <div>
+          <span class="tag">Precio fundador · <span class="js-cupos-txt">quedan 5 cupos</span></span>
+          <h3 id="fundador-t">Sé de los primeros clientes de Nodo y paga menos.</h3>
+          <p>Estamos armando nuestra cartera en Santiago y queremos partir con clientes que nos ayuden a mostrar el trabajo.</p>
+          <ul>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-ok"/></svg><span><b>10% de descuento</b> en cualquier pack o en los planes de Cámaras, Alarma, Luces y Energía y frío.</span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-ok"/></svg><span><b>Primer mes de soporte sin costo.</b></span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-ok"/></svg><span>A cambio, nos dejas sacar fotos de la instalación (sin tu dirección ni tu cara) y, si quedaste conforme, nos dejas una reseña en Google.</span></li>
+          </ul>
+        </div>
+        <div class="founder-cta">
+          <a class="btn js-wa-founder" href="#contacto"><span class="bulb"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></span>Quiero un cupo</a>
+          <p class="small">Válido para instalaciones agendadas hasta completar los cupos. No aplica al plan Portón por separado.</p>
+        </div>
       </div>
       <div class="plans" id="plans"></div>
 
@@ -643,6 +672,8 @@ footer strong { color: #FFFFFF; font-family: var(--display); font-weight: 900; }
   var WHATSAPP = "56933373581";            // número sin "+" ni espacios
   var TELEFONO_VISIBLE = "+56 9 3337 3581";
   var SALUDO = "Hola, vi la página de Nodo y me interesa una cotización.";
+  var CUPOS_FUNDADOR = 5;                  // cupos de precio fundador que quedan; en 0 se oculta la oferta
+  var SALUDO_FUNDADOR = "Hola, vi la página de Nodo y quiero uno de los cupos de precio fundador.";
   // ==========================
 
   var waBase = "https://wa.me/" + WHATSAPP + "?text=";
@@ -650,6 +681,13 @@ footer strong { color: #FFFFFF; font-family: var(--display); font-weight: 900; }
     a.href = waBase + encodeURIComponent(SALUDO); a.target = "_blank"; a.rel = "noopener";
   });
   document.querySelectorAll(".js-phone").forEach(function (a) { a.textContent = TELEFONO_VISIBLE; });
+  document.querySelectorAll(".js-wa-founder").forEach(function (a) {
+    a.href = waBase + encodeURIComponent(SALUDO_FUNDADOR); a.target = "_blank"; a.rel = "noopener";
+  });
+  document.querySelectorAll(".js-cupos-txt").forEach(function (e) {
+    e.textContent = CUPOS_FUNDADOR === 1 ? "queda 1 cupo" : "quedan " + CUPOS_FUNDADOR + " cupos";
+  });
+  if (CUPOS_FUNDADOR <= 0) document.querySelectorAll(".js-founder").forEach(function (e) { e.style.display = "none"; });
 
   // ===== Motor isométrico =====
   var K = 0.8660254;
